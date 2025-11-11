@@ -303,7 +303,7 @@ const SkillsPage = ({}: Props) => {
               Masters of Experimental and theoretical physics
             </p>
             <span className="block text-dissolve-color text-linkm sm:text-link">
-              National Research Nuclear University MEPHI
+              Engineering University
             </span>
             <br />
             <span className="block text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark">
