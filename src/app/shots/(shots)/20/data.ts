@@ -29,19 +29,19 @@ const logo: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/perlin/perlin1.png",
+      src: "/shots/perlin/perlin1.webp",
       alt: "Perlin Noise Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/perlin/perlin2.png",
+      src: "/shots/perlin/perlin2.webp",
       alt: "Perlin Noise Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/perlin/perlin3.png",
+      src: "/shots/perlin/perlin3.webp",
       alt: "Perlin Noise Scene",
     },
   ],

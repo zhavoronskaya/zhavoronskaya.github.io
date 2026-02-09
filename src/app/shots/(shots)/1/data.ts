@@ -28,19 +28,19 @@ const rayMarging: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/raymarching/ray1.png",
+      src: "/shots/raymarching/ray1.webp",
       alt: "Ray Marching Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/raymarching/ray2.png",
+      src: "/shots/raymarching/ray2.webp",
       alt: "Ray Marching Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/raymarching/ray3.png",
+      src: "/shots/raymarching/ray3.webp",
       alt: "Ray Marching Scene",
     },
   ],

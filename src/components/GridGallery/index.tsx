@@ -15,6 +15,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1  col-span-3 sm:col-start-1 sm:col-span-7 row-start-1 row-span-3 sm:row-span-5 lg:row-span-8"
         >
           <Video className="">
+            <source
+              src="/video/ray1-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/ray1-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -24,6 +29,11 @@ const GridGallery = ({}: Props) => {
           className=" col-start-1 col-span-3 sm:col-start-8 sm:col-span-5 row-start-4 row-span-3 sm:row-start-1 sm:row-span-7 lg:row-span-12"
         >
           <Video className="">
+            <source
+              src="/video/ray2-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/ray2-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -53,6 +63,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-1 sm:col-span-5 row-start-1 row-span-3 sm:row-span-4 lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/object1-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/object1-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -61,6 +76,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-2 col-span-2 sm:col-start-6 sm:col-span-7 row-start-1 row-span-3 sm:row-span-4 lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/object2-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/object2-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -69,6 +89,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-2 sm:col-span-7 row-start-4 row-span-3 sm:row-start-5 sm:row-span-4 lg:row-start-7 lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/object3-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/object3-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -77,6 +102,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-3 col-span-1 sm:col-span-5 sm:col-start-8 row-start-4 row-span-3 sm:row-start-5 sm:row-span-4 lg:row-start-7 lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/object4-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/object4-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -85,6 +115,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-span-6 row-start-7 row-span-3 sm:row-start-9 sm:row-span-4 lg:row-start-[13] lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/object5-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/object5-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -114,6 +149,11 @@ const GridGallery = ({}: Props) => {
         >
           <Video className="">
             <source
+              src="/video/particles2-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
+            <source
               src="/video/particles2-compressed-720.mp4"
               type="video/mp4"
             />
@@ -125,6 +165,11 @@ const GridGallery = ({}: Props) => {
         >
           <Video className="">
             <source
+              src="/video/particles1-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
+            <source
               src="/video/particles1-compressed-720.mp4"
               type="video/mp4"
             />
@@ -135,6 +180,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-2 col-span-2 sm:col-start-6 sm:col-span-7 row-start-4 row-span-2 sm:row-start-5 sm:row-span-3 lg:row-start-6 lg:row-span-4"
         >
           <Video className="">
+            <source
+              src="/video/particles3-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source
               src="/video/particles3-compressed-720.mp4"
               type="video/mp4"
@@ -167,6 +217,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-span-7 row-start-1 row-span-3 sm:row-span-5 lg:row-span-7"
         >
           <Video className="">
+            <source
+              src="/video/fbo2-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/fbo2-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -175,6 +230,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-start-8 sm:col-span-5 row-start-4 row-span-3 sm:row-start-2 sm:row-span-4 lg:row-start-2 lg:row-span-6"
         >
           <Video className="">
+            <source
+              src="/video/fbo1-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/fbo1-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -183,6 +243,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-1 sm:col-span-4 row-start-7 row-span-3 sm:row-start-6 sm:row-span-5 lg:row-start-8 lg:row-span-7"
         >
           <Video className="">
+            <source
+              src="/video/fbo6-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/fbo6-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -191,6 +256,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-2 col-span-2 sm:col-span-8 sm:col-start-5 row-start-7 row-span-3 sm:row-start-6 sm:row-span-5 lg:row-start-8 lg:row-span-7"
         >
           <Video className="">
+            <source
+              src="/video/fbo4-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/fbo4-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -199,6 +269,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-span-6 row-start-[10] row-span-3 sm:row-start-[11] sm:row-span-4 lg:row-start-[15] lg:row-span-5"
         >
           <Video className="">
+            <source
+              src="/video/fbo3-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/fbo3-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -228,6 +303,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-2 sm:col-span-9 row-start-1 row-span-3 sm:row-span-3 lg:row-span-7"
         >
           <Video className="">
+            <source
+              src="/video/tr4-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/tr4-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -236,6 +316,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-start-10 sm:col-span-3 row-start-4 row-span-3 sm:row-start-1 sm:row-span-2 lg:row-start-1 lg:row-span-5"
         >
           <Video className="">
+            <source
+              src="/video/tr1-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/tr1-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -244,6 +329,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-3 col-span-1 sm:col-start-6 sm:col-span-4 row-start-1 row-span-3 sm:row-start-4 sm:row-span-3 lg:row-start-8 lg:row-span-5"
         >
           <Video className="">
+            <source
+              src="/video/tr3-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/tr3-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -252,6 +342,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-span-3 sm:col-start-10 row-start-7 row-span-3 sm:row-start-3 sm:row-span-4 lg:row-start-6 lg:row-span-7"
         >
           <Video className="">
+            <source
+              src="/video/rose-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/rose-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -290,6 +385,11 @@ const GridGallery = ({}: Props) => {
           className="col-start-1 col-span-3 sm:col-start-6 sm:col-span-7 row-start-1 row-span-3 sm:row-span-6 lg:row-span-9"
         >
           <Video className="">
+            <source
+              src="/video/grid-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/grid-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>
@@ -299,6 +399,11 @@ const GridGallery = ({}: Props) => {
           className=" col-start-1 col-span-3 sm:col-start-1 sm:col-span-5 row-start-4 row-span-3 sm:row-start-2 sm:row-span-3 lg:row-span-5"
         >
           <Video className="">
+            <source
+              src="/video/space-compressed-1080.mp4"
+              type="video/mp4"
+              media="(min-width: 1280px)"
+            />
             <source src="/video/space-compressed-720.mp4" type="video/mp4" />
           </Video>
         </Cell>

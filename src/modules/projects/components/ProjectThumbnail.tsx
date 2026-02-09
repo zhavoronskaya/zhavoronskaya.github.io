@@ -23,6 +23,13 @@ const ProjectThumbnail = ({ project }: Props) => {
         /> */}
         <div className="relative overflow-hidden rounded-xl border border-border-dissolve-color">
           <Video>
+            {project.thumbnailVideoUrl1080 && (
+              <source
+                src={project.thumbnailVideoUrl1080}
+                type="video/mp4"
+                media="(min-width: 1280px)"
+              />
+            )}
             <source src={project.thumbnailVideoUrl} type="video/mp4" />
           </Video>
         </div>

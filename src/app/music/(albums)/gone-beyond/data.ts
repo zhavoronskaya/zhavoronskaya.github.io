@@ -8,13 +8,13 @@ const moon: IAlbum = {
     {
       width: 600,
       height: 600,
-      src: "/albums/moon/moon2.png",
+      src: "/albums/moon/moon2.webp",
       alt: "Gone beyond & White Half Moon",
     },
     {
       width: 600,
       height: 600,
-      src: "/albums/moon/moon1.png",
+      src: "/albums/moon/moon1.webp",
       alt: "Gone beyond & White Half Moon",
     },
   ],

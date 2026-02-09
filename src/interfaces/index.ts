@@ -30,6 +30,7 @@ export interface IProject {
   separator?: string;
   thumbnailDIscription?: string;
   thumbnailVideoUrl: string;
+  thumbnailVideoUrl1080?: string;
   // thumbnailSize: ImageSizes;
   label: string;
   link: string;

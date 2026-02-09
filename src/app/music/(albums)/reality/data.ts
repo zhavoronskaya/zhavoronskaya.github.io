@@ -8,13 +8,13 @@ const reality: IAlbum = {
     {
       width: 600,
       height: 600,
-      src: "/albums/reality/reality.png",
+      src: "/albums/reality/reality.webp",
       alt: "R/reality",
     },
     {
       width: 600,
       height: 600,
-      src: "/albums/reality/reality1.png",
+      src: "/albums/reality/reality1.webp",
       alt: "R/reality",
     },
   ],

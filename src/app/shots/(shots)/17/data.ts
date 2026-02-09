@@ -25,19 +25,19 @@ const shell: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/transparent/shell1.png",
+      src: "/shots/transparent/shell1.webp",
       alt: "Transmission Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/transparent/shell2.png",
+      src: "/shots/transparent/shell2.webp",
       alt: "Transmission Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/transparent/shell3.png",
+      src: "/shots/transparent/shell3.webp",
       alt: "Transmission Scene",
     },
   ],

@@ -8,13 +8,13 @@ const crystal: IAlbum = {
     {
       width: 600,
       height: 600,
-      src: "/albums/crystal/crystal.png",
+      src: "/albums/crystal/crystal.webp",
       alt: "Twilight crystal",
     },
     {
       width: 600,
       height: 600,
-      src: "/albums/crystal/crystal1.png",
+      src: "/albums/crystal/crystal1.webp",
       alt: "Twilight crystal",
     },
   ],

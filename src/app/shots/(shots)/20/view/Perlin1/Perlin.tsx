@@ -8,12 +8,12 @@ import { MeshTransmissionMaterial, Text } from "@react-three/drei";
 function createSkyBox() {
   const loader = new THREE.CubeTextureLoader();
   const texture = loader.load([
-    "/shots/transparent/texture/px.png",
-    "/shots/transparent/texture/nx.png",
-    "/shots/transparent/texture/py.png",
-    "/shots/transparent/texture/ny.png",
-    "/shots/transparent/texture/pz.png",
-    "/shots/transparent/texture/nz.png",
+    "/shots/transparent/texture/px.webp",
+    "/shots/transparent/texture/nx.webp",
+    "/shots/transparent/texture/py.webp",
+    "/shots/transparent/texture/ny.webp",
+    "/shots/transparent/texture/pz.webp",
+    "/shots/transparent/texture/nz.webp",
   ]);
   console.log(texture);
   return texture;

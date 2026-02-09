@@ -12,7 +12,7 @@ const DecorationImage = ({}: Props) => {
       height="2198"
       alt="contact"
       className="js-view-transition-element object-cover w-full h-full"
-      src="/image/contact.png"
+      src="/image/contact.webp"
       priority={true}
       style={{ opacity: 0 }}
     />

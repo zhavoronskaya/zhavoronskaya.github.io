@@ -24,19 +24,19 @@ const FBO1: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/fbo/fbo1.png",
+      src: "/shots/fbo/fbo1.webp",
       alt: "FBO Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/fbo/fbo2.png",
+      src: "/shots/fbo/fbo2.webp",
       alt: "FBO Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/fbo/fbo3.png",
+      src: "/shots/fbo/fbo3.webp",
       alt: "FBO Scene",
     },
   ],

@@ -8,13 +8,13 @@ const dream: IAlbum = {
     {
       width: 600,
       height: 600,
-      src: "/albums/dream/dream.png",
+      src: "/albums/dream/dream.webp",
       alt: "I dream in dreams",
     },
     {
       width: 600,
       height: 600,
-      src: "/albums/dream/dream1.png",
+      src: "/albums/dream/dream1.webp",
       alt: "I dream in dreams",
     },
   ],

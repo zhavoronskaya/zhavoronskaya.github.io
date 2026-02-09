@@ -25,19 +25,19 @@ const Geometry1: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/geometry/geo1.png",
+      src: "/shots/geometry/geo1.webp",
       alt: "Geometry Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/geometry/geo2.png",
+      src: "/shots/geometry/geo2.webp",
       alt: "Geometry Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/geometry/geo3.png",
+      src: "/shots/geometry/geo3.webp",
       alt: "Geometry Scene",
     },
   ],

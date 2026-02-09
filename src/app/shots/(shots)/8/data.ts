@@ -29,19 +29,19 @@ const particles: IShotData = {
     {
       width: 600,
       height: 600,
-      src: "/shots/particles/particles2.png",
+      src: "/shots/particles/particles2.webp",
       alt: "Particles Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/particles/particles1.png",
+      src: "/shots/particles/particles1.webp",
       alt: "Particles Scene",
     },
     {
       width: 600,
       height: 600,
-      src: "/shots/particles/particles3.png",
+      src: "/shots/particles/particles3.webp",
       alt: "Particles Scene",
     },
   ],
