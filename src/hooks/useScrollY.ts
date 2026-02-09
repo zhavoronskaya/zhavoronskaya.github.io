@@ -23,7 +23,7 @@ export default function useScrollY(selector: string) {
     return () => {
       elem.removeEventListener("wheel", handleScroll);
     };
-  }, []);
+  }, [selector]);
 
   return { scrollTop, direction };
 }

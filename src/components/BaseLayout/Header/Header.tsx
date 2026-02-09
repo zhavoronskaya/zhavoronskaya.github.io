@@ -147,10 +147,10 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   return createPortal(
     <div onClick={onClose} className={className}>
       <div
-        className="pointer absolute top-4 sm:right-6 right-4"
+        className="pointer absolute top-4 sm:right-6 right-4 group"
         onClick={onClose}
       >
-        <Cross />
+        <Cross className="transition-transform duration-200 ease-in-out group-hover:rotate-90" />
       </div>
       <div className="relative h-full w-full">
         <div

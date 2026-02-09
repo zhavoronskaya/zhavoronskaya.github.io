@@ -52,8 +52,19 @@ export const CAMERA_POSITIONINGS_MAP = {
     position: new Vector3(-12.5, -8, 8.31),
     target: new Vector3(-12, -8, 0),
   },
+  gallery: {
+    id: "gallery",
+    position: new Vector3(0, -15, 14.5),
+    target: new Vector3(0, -15, 4),
+  },
+  collaborate: {
+    id: "collaborate",
+    position: new Vector3(-2, 2, 8),
+    target: new Vector3(-1, 0, 2),
+  },
 };
 
+// Mobile: camera adjusted for small screens
 export const CAMERA_POSITIONINGS_MAP_TOUCH_SCREEN = {
   default: {
     id: "default",
@@ -74,5 +85,15 @@ export const CAMERA_POSITIONINGS_MAP_TOUCH_SCREEN = {
     id: "lastTurn",
     position: new Vector3(-12.5, -8, 8.31),
     target: new Vector3(-12, -8, 0),
+  },
+  gallery: {
+    id: "gallery",
+    position: new Vector3(0, -15, 16),
+    target: new Vector3(0, -15, 5),
+  },
+  collaborate: {
+    id: "collaborate",
+    position: new Vector3(-2, 2, 7),
+    target: new Vector3(-1, 0, 2),
   },
 };

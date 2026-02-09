@@ -9,6 +9,7 @@ uniform float uRatio;
 uniform vec2 uMouse;
 uniform vec2 uResolution;
 uniform float uActive;
+uniform float uOpacity;
 
 
 
@@ -52,5 +53,5 @@ void main() {
   uv = uv - stripe*uActive;
   
   vec3 tex = texture2D(uImage, uv).rgb;
-  gl_FragColor = vec4(vec3(tex),roundedAlpha);
+  gl_FragColor = vec4(vec3(tex), roundedAlpha * uOpacity);
 }`;

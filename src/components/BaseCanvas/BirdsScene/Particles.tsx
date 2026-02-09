@@ -151,17 +151,17 @@ function Particles() {
         shaderRef={shaderRef}
         texture={displacement?.texture}
         geometryArgs={[
-          2.4 * viewport.width,
-          (2.4 * viewport.height) / sizeRatio,
-          32,
-          32,
+          6.0 * viewport.width,
+          (6.0 * viewport.height) / sizeRatio,
+          64,
+          64,
         ]}
       />
       <mesh ref={planeRef}>
         <planeGeometry
           args={[
-            2.4 * viewport.width,
-            (2.4 * viewport.height) / sizeRatio,
+            6.0 * viewport.width,
+            (6.0 * viewport.height) / sizeRatio,
             1,
             1,
           ]}

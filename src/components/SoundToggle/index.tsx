@@ -20,7 +20,7 @@ export default function SoundToggle({ sound }: { sound: boolean }) {
 
   return (
     <div
-      className="pointer opacity-75 hover:opacity-100 "
+      className="pointer opacity-75 hover:opacity-100 transition-opacity duration-200 ease-in-out"
       onClick={handleSoundClick}
     >
       {isActive ? <SoundOnIcon /> : <SoundOffIcon />}

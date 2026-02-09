@@ -1,6 +1,6 @@
 "use client";
 import * as THREE from "three";
-import * as TWEEN from "@tweenjs/tween.js";
+import { Tween, Group, Easing } from "@tweenjs/tween.js";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useFrame, useThree } from "@react-three/fiber";
@@ -26,72 +26,73 @@ import useScrollY from "@/hooks/useScrollY";
 const images = [
   {
     link: "2",
-    href: "/gallery/1.png",
+    href: "/gallery/1.webp",
     video: "/video/ray2-compressed-720.mp4",
   },
 
   {
     link: "18",
-    href: "/gallery/3.png",
+    href: "/gallery/3.webp",
     video: "/video/tr1-compressed-720.mp4",
   },
   {
     link: "4",
-    href: "/gallery/2.png",
+    href: "/gallery/2.webp",
     video: "/video/object2-compressed-720.mp4",
   },
   {
     link: "1",
-    href: "/gallery/4.png",
+    href: "/gallery/4.webp",
     video: "/video/ray1-compressed-720.mp4",
   },
   {
     link: "12",
-    href: "/gallery/5.png",
+    href: "/gallery/5.webp",
     video: "/video/fbo1-compressed-720.mp4",
   },
   {
     link: "11",
-    href: "/gallery/6.png",
+    href: "/gallery/6.webp",
     video: "/video/fbo2-compressed-720.mp4",
   },
   {
     link: "15",
-    href: "/gallery/7.png",
+    href: "/gallery/7.webp",
     video: "/video/fbo3-compressed-720.mp4",
   },
   {
     link: "8",
-    href: "/gallery/8.png",
+    href: "/gallery/8.webp",
     video: "/video/particles2-compressed-720.mp4",
   },
   {
     link: "21",
-    href: "/gallery/9.png",
+    href: "/gallery/9.webp",
     video: "/video/grid-compressed-720.mp4",
   },
   // {
   //   link: "19",
-  //   href: "/gallery/10.png",
+  //   href: "/gallery/10.webp",
   //   video: "/video/rose-compressed-720.mp4",
   // },
   {
     link: "3",
-    href: "/gallery/11.png",
+    href: "/gallery/11.webp",
     video: "/video/object1-compressed-720.mp4",
   },
   {
     link: "19",
-    href: "/gallery/10.png",
+    href: "/gallery/10.webp",
     video: "/video/rose-compressed-720.mp4",
   },
 
   //   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(
-  //   (u) => `/gallery/${u}.png`
+  //   (u) => `/gallery/${u}.webp`
   // )
 ];
 
 const SHOTS_CANVAS_ID = "shots-canvas";
+const tweenGroup = new Group();
 const deltaOffset = 1 / images.length; // 0.1
 const modile = isMobile().phone;
 const cameraPositionZ = modile ? 4.8 : 5.8;
@@ -136,17 +137,17 @@ type ItemsProps = {
 };
 
 const Items = ({ state, setState }: ItemsProps) => {
-  // const htmlScrollLock = useScrollLock("html");
-  const { viewport, size } = useThree();
+  const { viewport } = useThree();
   const xW = modile ? 4 : 5.5;
   const gap = modile ? 0.1 : 0.2;
+
+  useFrame(() => tweenGroup.update());
 
   return (
     <Suspense fallback={null}>
       <ScrollControls
         horizontal
         damping={0.1}
-        // enabled={htmlScrollLock.isLocked}
         pages={(images.length * (xW + gap) - gap) / viewport.width}
         distance={1}
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -318,8 +319,9 @@ function Item({
     uRatio: new THREE.Uniform(ratio),
     uResolution: new THREE.Uniform(new THREE.Vector2(xW, xW * height)),
     uTime: new THREE.Uniform(0),
-    uActive: new THREE.Uniform(1),
+    uActive: new THREE.Uniform(0),
   });
+  const tweenRef = useRef<Tween<{ progress: number }> | null>(null);
   useEffect(() => {
     if (isActive || hovered) {
       texture.image.play();
@@ -344,18 +346,18 @@ function Item({
   const animateActiveUniform = () => {
     if (!ref.current) return;
     const material = ref.current.material as THREE.ShaderMaterial;
+    tweenRef.current?.stop();
     const data = { progress: hovered ? 0 : 1.0 };
     const to = { progress: hovered ? 1 : 0 };
 
-    new TWEEN.Tween(data)
+    const tween = new Tween(data, tweenGroup)
       .to(to, 400)
-      .easing(TWEEN.Easing.Cubic.InOut)
-      // .easing(TWEEN.Easing.Exponential.InOut)
+      .easing(Easing.Cubic.InOut)
       .onUpdate(() => {
         material.uniforms.uActive.value = data.progress;
-        material.needsUpdate = true;
       })
       .start();
+    tweenRef.current = tween;
   };
 
   useEffect(() => {
@@ -363,7 +365,6 @@ function Item({
   }, [hovered]);
 
   useFrame((state, delta) => {
-    TWEEN.update();
     if (!group.current) return;
     if (!ref.current) return;
     if (!(ref.current.material instanceof THREE.ShaderMaterial)) return;

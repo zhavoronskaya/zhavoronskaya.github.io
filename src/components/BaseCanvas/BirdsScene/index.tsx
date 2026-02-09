@@ -33,6 +33,7 @@ import {
 } from "@/helpers/Object3d";
 import Particles from "./Particles";
 import Animations from "./Animations";
+import ShotsGalleryContent from "../ShotsGallery/ShotsGalleryContent";
 
 import { CAMERA_POSITIONINGS_MAP } from "./CameraSettings";
 import { createPortal } from "react-dom";
@@ -108,6 +109,7 @@ const BirdsScene = () => {
             <Birds />
           </Float>
         </Suspense>
+        <ShotsGalleryContent />
         <Animations />
       </BaseCanvas>
     </>

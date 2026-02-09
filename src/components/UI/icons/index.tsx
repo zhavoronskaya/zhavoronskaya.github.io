@@ -54,9 +54,10 @@ export const Logo = () => {
   );
 };
 
-export const Cross = () => {
+export const Cross = ({ className }: IIcon) => {
   return (
     <svg
+      className={className}
       width="32"
       height="33"
       viewBox="0 0 32 33"

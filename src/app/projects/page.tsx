@@ -1,10 +1,8 @@
 import { TechnologyLinks } from "@/constants";
-import virtudes from "./parque-das-virtudes/data";
-import cityscape from "./cityscape-showcase/data";
-import ProjectThumbnail from "@/modules/projects/components/ProjectThumbnail";
 import { FlowerProject } from "@/components/UI/decor";
 import { ProjectsSvgAnimation } from "@/components/SvgAnimation";
 import JumpingText from "@/components/JumpingText";
+import TransitionLink from "@/components/TransitionLink";
 
 type Props = {};
 
@@ -62,11 +60,19 @@ const ProjectsPage = ({}: Props) => {
         </p>
       </div>
 
-      <ProjectThumbnail project={virtudes} />
-      {/* <ProjectThumbnail project={cityscape} /> */}
-
-      <div className="block text-bodysm sm:text-bodyst lg:text-bodys text-dissolve-color mb-4 sm:mb-8 lg:mb-12">
-        More projects coming soon...
+      <div className="mt-16 sm:mt-24 sm:mb-24 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
+        <TransitionLink
+          href="/projects/pets"
+          className="block text-hsm sm:text-hst lg:text-hs font-bold uppercase hover:text-accent-color transition-colors"
+        >
+          pets
+        </TransitionLink>
+        <TransitionLink
+          href="/projects/studio"
+          className="block text-hsm sm:text-hst lg:text-hs font-bold uppercase hover:text-accent-color transition-colors"
+        >
+          studio
+        </TransitionLink>
       </div>
     </div>
   );
