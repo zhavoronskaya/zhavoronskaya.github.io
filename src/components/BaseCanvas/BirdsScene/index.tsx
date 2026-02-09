@@ -88,7 +88,7 @@ const BirdsScene = () => {
           <Environment files="/textures/forest.jpg" environmentIntensity={2}>
             <Lightformer
               form="rect"
-              intensity={3}
+              intensity={8}
               position={[2, 6, 3]}
               scale={5}
             />
@@ -200,7 +200,7 @@ export const Birds = ({}: Props) => {
     // return () => {
     //   document.removeEventListener("wheel", handleNotesPosition);
     // };
-  }, []);
+  }, [actions, scene]);
 
   const animateNote = (note: Mesh, cloneMesh: Mesh) => {
     cloneMesh.visible = true;

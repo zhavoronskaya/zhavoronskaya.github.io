@@ -130,15 +130,13 @@ function FBO() {
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
+              args={[positions, 3]}
               count={positions.length / 3}
-              array={positions}
-              itemSize={3}
             />
             <bufferAttribute
               attach="attributes-uv"
+              args={[uvs, 2]}
               count={uvs.length / 2}
-              array={uvs}
-              itemSize={2}
             />
           </bufferGeometry>
         </mesh>,
@@ -149,9 +147,8 @@ function FBO() {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
+            args={[particlesPosition, 3]}
             count={particlesPosition.length / 3}
-            array={particlesPosition}
-            itemSize={3}
           />
         </bufferGeometry>
         <shaderMaterial

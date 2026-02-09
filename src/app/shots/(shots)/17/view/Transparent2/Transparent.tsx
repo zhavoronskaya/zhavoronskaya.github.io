@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, type ComponentRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -23,7 +23,7 @@ function Transparent() {
   const pointsRef = useRef<THREE.Points>(null);
   const meshRef = useRef<THREE.Mesh | null>(null);
   const transmissionRef =
-    useRef<JSX.IntrinsicElements["meshTransmissionMaterial"]>(null);
+    useRef<ComponentRef<typeof MeshTransmissionMaterial>>(null);
   const transmissionShaderRef =
     useRef<THREE.WebGLProgramParametersWithUniforms | null>(null);
 
@@ -51,7 +51,10 @@ function Transparent() {
     const material = transmissionRef.current;
     const onCompile = material.onBeforeCompile;
 
-    material.onBeforeCompile = (webglProgram, renderer) => {
+    material.onBeforeCompile = (
+      webglProgram: THREE.WebGLProgramParametersWithUniforms,
+      renderer: THREE.WebGLRenderer
+    ) => {
       transmissionShaderRef.current = webglProgram;
 
       webglProgram.uniforms.uTime = { value: 1.0 };
@@ -170,7 +173,7 @@ function Transparent() {
         `
       );
 
-      onCompile?.(webglProgram, renderer);
+      if (typeof onCompile === "function") onCompile(webglProgram, renderer);
     };
   }, []);
 

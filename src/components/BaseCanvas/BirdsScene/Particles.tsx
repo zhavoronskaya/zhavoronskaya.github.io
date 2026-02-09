@@ -227,7 +227,7 @@ const Points = React.memo(
       }
 
       setData({ intensitiesArray, anglesArray, speedsArray, sizesArray });
-    }, []);
+    }, [pointsRef]);
 
     return (
       <points ref={pointsRef}>
@@ -235,33 +235,29 @@ const Points = React.memo(
           {data.intensitiesArray && (
             <bufferAttribute
               attach="attributes-aIntensity"
-              array={data.intensitiesArray}
+              args={[data.intensitiesArray, 1]}
               count={data.intensitiesArray.length}
-              itemSize={1}
             />
           )}
           {data.anglesArray && (
             <bufferAttribute
               attach="attributes-aAngle"
-              array={data.anglesArray}
+              args={[data.anglesArray, 1]}
               count={data.anglesArray.length}
-              itemSize={1}
             />
           )}
           {data.speedsArray && (
             <bufferAttribute
               attach="attributes-aSpeed"
-              array={data.speedsArray}
+              args={[data.speedsArray, 1]}
               count={data.speedsArray.length}
-              itemSize={1}
             />
           )}
           {data.sizesArray && (
             <bufferAttribute
               attach="attributes-aSize"
-              array={data.sizesArray}
+              args={[data.sizesArray, 1]}
               count={data.sizesArray.length}
-              itemSize={1}
             />
           )}
         </planeGeometry>

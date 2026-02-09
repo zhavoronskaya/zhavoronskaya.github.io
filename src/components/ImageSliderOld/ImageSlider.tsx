@@ -10,7 +10,7 @@ type Props = {
 };
 const ImageSlider = ({ images }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const pointerXBeforeDrag = useRef<number>();
+  const pointerXBeforeDrag = useRef<number | undefined>(undefined);
   const [activeImage, setActiveImage] = useState(0);
 
   const translateX = useMemo(() => {
@@ -22,7 +22,7 @@ const ImageSlider = ({ images }: Props) => {
 
   console.log("translateX", translateX);
 
-  const slideToNextImage = () => {
+  const slideToNextImage = useCallback(() => {
     setActiveImage((v) => {
       if (v >= images.length - 1) {
         return 0;
@@ -30,9 +30,9 @@ const ImageSlider = ({ images }: Props) => {
         return v + 1;
       }
     });
-  };
+  }, [images.length]);
 
-  const slideToPrevImage = () => {
+  const slideToPrevImage = useCallback(() => {
     setActiveImage((v) => {
       if (v <= 0) {
         return images.length - 1;
@@ -40,26 +40,29 @@ const ImageSlider = ({ images }: Props) => {
         return v - 1;
       }
     });
-  };
+  }, [images.length]);
 
   const onDragStart = useCallback((evt: React.PointerEvent) => {
     pointerXBeforeDrag.current = evt.clientX;
   }, []);
 
-  const onDrag = useCallback((evt: PointerEvent) => {
-    if (pointerXBeforeDrag.current === undefined) return;
+  const onDrag = useCallback(
+    (evt: PointerEvent) => {
+      if (pointerXBeforeDrag.current === undefined) return;
 
-    const pointerX = evt.clientX;
-    const diff = pointerX - pointerXBeforeDrag.current;
-    const diffAbs = Math.abs(diff);
+      const pointerX = evt.clientX;
+      const diff = pointerX - pointerXBeforeDrag.current;
+      const diffAbs = Math.abs(diff);
 
-    if (diffAbs > 100) {
-      const direction = Math.sign(-diff);
-      if (direction === 1) slideToNextImage();
-      else if (direction === -1) slideToPrevImage();
-      pointerXBeforeDrag.current = undefined;
-    }
-  }, []);
+      if (diffAbs > 100) {
+        const direction = Math.sign(-diff);
+        if (direction === 1) slideToNextImage();
+        else if (direction === -1) slideToPrevImage();
+        pointerXBeforeDrag.current = undefined;
+      }
+    },
+    [slideToNextImage, slideToPrevImage]
+  );
 
   const { startDragging, stopDragging } = useDragging({
     onDrag,

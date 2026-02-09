@@ -41,6 +41,8 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
   const active = useRef<Mesh | null>(null);
 
   const { pointer } = useThree();
+  const pointerRef = useRef(pointer);
+  pointerRef.current = pointer;
 
   const meshFadeOut = useCallback((mesh: Mesh | null) => {
     if (!mesh) return;
@@ -49,7 +51,10 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
     const uniforms = mesh.material.uniforms;
     const data = { z: mesh.position.z, progress: 0 };
     const to = { z: 500, progress: 1 };
-    uniforms.uMouse.value = new Vector2(pointer.x, pointer.y);
+    uniforms.uMouse.value = new Vector2(
+      pointerRef.current.x,
+      pointerRef.current.y
+    );
 
     new TWEEN.Tween(data)
       .to(to, 2000)

@@ -123,15 +123,13 @@ const FBOFlower = () => {
           <bufferGeometry>
             <bufferAttribute
               attach="attributes-position"
+              args={[positions, 3]}
               count={positions.length / 3}
-              array={positions}
-              itemSize={3}
             />
             <bufferAttribute
               attach="attributes-uv"
+              args={[uvs, 2]}
               count={uvs.length / 2}
-              array={uvs}
-              itemSize={2}
             />
           </bufferGeometry>
         </mesh>,
@@ -142,9 +140,8 @@ const FBOFlower = () => {
         <bufferGeometry>
           <bufferAttribute
             attach="attributes-position"
+            args={[particlesPosition1, 3]}
             count={particlesPosition1.length / 3}
-            array={particlesPosition1}
-            itemSize={3}
           />
         </bufferGeometry>
         <shaderMaterial

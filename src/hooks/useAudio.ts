@@ -41,7 +41,7 @@ function useAudio(
     };
 
     load();
-  }, [url, autoPlay, startTime]);
+  }, [url, autoPlay, loop, startTime]);
 
   const start = React.useCallback(() => {
     if (!audio) return;
@@ -51,7 +51,7 @@ function useAudio(
       onStart: () => (audio.play(), setIsPlaying(true)),
       onChange: (v) => (audio.volume = Math.min(1, v)),
     });
-  }, [audio, isVolumeAnimating]);
+  }, [audio, isVolumeAnimating, volumeFadeIn]);
 
   const stop = React.useCallback(() => {
     if (!audio) return;
@@ -62,7 +62,7 @@ function useAudio(
       onChange: (v) => (audio.volume = Math.max(0, v)),
       onFinish: () => audio.pause(),
     });
-  }, [audio, isVolumeAnimating]);
+  }, [audio, isVolumeAnimating, volumeFadeOut]);
 
   const toggle = React.useCallback(() => {
     return isPlaying ? stop() : start();
@@ -74,7 +74,7 @@ function useAudio(
       audio.pause();
       audio.currentTime = 0;
     };
-  }, []);
+  }, [audio]);
 
   return {
     audio,

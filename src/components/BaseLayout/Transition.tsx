@@ -9,7 +9,6 @@ export default function Transition({
 }) {
   return (
     <motion.div
-      id="motion-div"
       // initial={{ y: 20, opacity: 0 }}
       // animate={{ y: 0.1, opacity: 1 }}
       initial={{ opacity: 0 }}

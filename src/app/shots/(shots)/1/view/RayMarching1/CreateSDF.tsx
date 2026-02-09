@@ -8,7 +8,7 @@ import { isShaderMaterial } from "@/helpers/Material";
 
 function CreateSDF() {
   const shaderRef = useRef<THREE.ShaderMaterial | null>(null);
-  const geomertyRef = useRef();
+  const geomertyRef = useRef<THREE.BufferGeometry | null>(null);
   const mesh = useRef<THREE.Mesh | null>(null);
   const gl = useThree();
 
