@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import { Logo, Burger, Cross } from "@/components/UI/icons";
 import TransitionLink from "@/components/TransitionLink";
+import SoundToggle from "@/components/SoundToggle";
 import { createPortal } from "react-dom";
 
 type Props = {
@@ -59,9 +60,12 @@ const Header = ({ bgRight }: Props) => {
         className="fixed h-[64px] left-0 top-0 w-full z-[50]"
       >
         <div className="flex justify-between w-full px-4 sm:px-6 py-4">
-          <TransitionLink href="/">
-            <Logo />
-          </TransitionLink>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <TransitionLink href="/">
+              <Logo />
+            </TransitionLink>
+            <SoundToggle sound={true} />
+          </div>
 
           <div className="relative pointer" onClick={menuOpen}>
             <Burger />

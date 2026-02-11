@@ -1,8 +1,8 @@
 import { TechnologyLinks } from "@/constants";
 import { FlowerProject } from "@/components/UI/decor";
+import { CloudButtonLink } from "@/components/CloudButtonLink";
 import { ProjectsSvgAnimation } from "@/components/SvgAnimation";
 import JumpingText from "@/components/JumpingText";
-import TransitionLink from "@/components/TransitionLink";
 
 type Props = {};
 
@@ -46,6 +46,15 @@ const ProjectsPage = ({}: Props) => {
             className="text-accent-color hover:text-accent-color-active"
           >
             WebGL
+          </a>{" "}
+          /{" "}
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={TechnologyLinks.WEBGPU}
+            className="text-accent-color hover:text-accent-color-active"
+          >
+            WebGPU
           </a>
           ,{" "}
           <a
@@ -60,19 +69,28 @@ const ProjectsPage = ({}: Props) => {
         </p>
       </div>
 
-      <div className="mt-16 sm:mt-24 sm:mb-24 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
-        <TransitionLink
-          href="/projects/pets"
-          className="block text-hsm sm:text-hst lg:text-hs font-bold uppercase hover:text-accent-color transition-colors"
-        >
-          pets
-        </TransitionLink>
-        <TransitionLink
-          href="/projects/studio"
-          className="block text-hsm sm:text-hst lg:text-hs font-bold uppercase hover:text-accent-color transition-colors"
-        >
-          studio
-        </TransitionLink>
+      <div className="mt-16 sm:mt-24 mb-16 sm:mb-36 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
+        <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
+          <CloudButtonLink
+            href="/projects/pets"
+            internal
+            size="large"
+            className="block w-full h-full"
+          >
+            pets
+          </CloudButtonLink>
+        </div>
+        <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
+          <CloudButtonLink
+            href="/projects/studio"
+            internal
+            size="large"
+            mirrorSvg
+            className="block w-full h-full"
+          >
+            studio
+          </CloudButtonLink>
+        </div>
       </div>
     </div>
   );

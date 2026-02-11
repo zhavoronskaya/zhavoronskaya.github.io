@@ -33,6 +33,7 @@ export interface IProject {
   thumbnailVideoUrl1080?: string;
   // thumbnailSize: ImageSizes;
   label: string;
+  artistLink?: string;
   link: string;
   routing: string;
   projectImages?: string[];

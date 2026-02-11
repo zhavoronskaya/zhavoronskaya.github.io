@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import lizaLubi from "./data";
+import soCoffee from "./data";
 import ProjectPageLayout from "@/modules/projects/components/ProjectPageLayout";
 import { ImageProjectAnimation } from "@/components/ImageProjectAnimation";
 
@@ -9,12 +9,12 @@ const IMG_HEIGHT = 1436;
 
 type Props = {};
 
-const LizaProject = ({}: Props) => {
-  const images = lizaLubi.projectImages ?? [];
+const SoCoffeeProject = ({}: Props) => {
+  const images = soCoffee.projectImages ?? [];
 
   return (
     <>
-      <ProjectPageLayout project={lizaLubi}>
+      <ProjectPageLayout project={soCoffee}>
         <div className="gallery mt-8 sm:mt-12 lg:mt-20 sm:grid sm:grid-cols-12 sm:gap-4">
           <ImageProjectAnimation />
           {images[0] && (
@@ -22,7 +22,7 @@ const LizaProject = ({}: Props) => {
               <Image
                 width={IMG_WIDTH}
                 height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 1"
+                alt="SO Coffee — screenshot 1"
                 priority
                 className="image image-1 object-cover w-full h-full rounded-lg border-border-image-color"
                 src={images[0]}
@@ -34,7 +34,7 @@ const LizaProject = ({}: Props) => {
               <Image
                 width={IMG_WIDTH}
                 height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 2"
+                alt="SO Coffee — screenshot 2"
                 priority
                 className="image-2 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[-50px]"
                 src={images[1]}
@@ -46,7 +46,7 @@ const LizaProject = ({}: Props) => {
               <Image
                 width={IMG_WIDTH}
                 height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 3"
+                alt="SO Coffee — screenshot 3"
                 priority
                 className="image-3 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[50px]"
                 src={images[2]}
@@ -59,4 +59,4 @@ const LizaProject = ({}: Props) => {
   );
 };
 
-export default LizaProject;
+export default SoCoffeeProject;

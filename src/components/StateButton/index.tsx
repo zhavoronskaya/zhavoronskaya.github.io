@@ -2,7 +2,7 @@
 
 import useScene from "@/hooks/useScene";
 import { useState } from "react";
-import { PingHeartHome } from "../UI/decor";
+import { PinkHeartHome } from "../UI/decor";
 import useAudio from "@/hooks/useAudio";
 
 type Props = {};
@@ -50,7 +50,7 @@ const StateButtom = ({}: Props) => {
         onClick={handleNotesPlay}
       />
 
-      <PingHeartHome
+      <PinkHeartHome
         className={`pointer fixed w-[14px]  ${animation} z-20  pointer-events-none`}
         style={{
           left: `${notesGroupPosition.x - 7}px`,

@@ -133,6 +133,69 @@ export function ShotLayoutSvgAnimation() {
   return null;
 }
 
+export function PetsSvgAnimation() {
+  const tl = gsap.timeline();
+  useGSAP(
+    () => {
+      tl.to(".pets-dog", {
+        duration: 0.8,
+        rotation: -12,
+        scale: 1.15,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        transformOrigin: "50% 50%",
+        scrollTrigger: {
+          trigger: ".pets-title",
+        },
+      })
+        .to(
+          ".pets-dog-fill",
+          {
+            duration: 0.4,
+            scale: 1.35,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            transformOrigin: "50% 50%",
+            scrollTrigger: {
+              trigger: ".pets-title",
+            },
+          },
+          "<"
+        )
+        .to(
+          ".projects-heart",
+          {
+            duration: 4,
+            motionPath: {
+              path: [
+                { x: 0, y: 0, scale: 1, opacity: 0 },
+                { x: -60, y: -80, scale: 1.1, opacity: 0.25 },
+                { x: -120, y: -140, scale: 1.2, opacity: 0.5 },
+                { x: 120, y: -220, scale: 1.3, opacity: 0.75 },
+                { x: 0, y: -300, scale: 1.4, opacity: 1 },
+              ],
+              alignOrigin: [0.5, 0.5],
+              curviness: 2,
+            },
+            immediateRender: false,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.out",
+            scrollTrigger: {
+              trigger: ".projects-heart",
+            },
+          },
+          "<"
+        );
+      ScrollTrigger.refresh();
+    },
+    { dependencies: [] }
+  );
+  return null;
+}
+
 export function ProjectsSvgAnimation() {
   const tl = gsap.timeline();
   useGSAP(

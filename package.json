@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "video:compress": "./scripts/recompress-videos.sh"
+    "video:compress": "./scripts/recompress-videos.sh",
+    "glb:optimize": "./scripts/optimize-all-glb.sh"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

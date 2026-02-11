@@ -33,6 +33,19 @@ const ProjectPageLayout = ({ project, children }: Props) => {
             </h1>
             <span className="block text-remarkm sm:text-remarkt lg:text-remark text-dissolve-color mt-4 sm:mt-8 lg:mt-12">
               {project.label}
+              {project.artistLink && (
+                <>
+                  {" · "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={project.artistLink}
+                    className="text-accent-color hover:text-accent-color-active"
+                  >
+                    artist page
+                  </a>
+                </>
+              )}
             </span>
           </div>
           <div className="project-bird absolute right-[-52%] top-[132%] sm:right-[-20%] sm:top-[54%] lg:right-[-22%] lg:top-[64%] xl:right-[-16%] xl:top-[64%] z-20 pointer-events-none">
@@ -49,7 +62,7 @@ const ProjectPageLayout = ({ project, children }: Props) => {
               target="_blank"
               rel="noopener noreferrer"
               href={project.link}
-              className="block text-accent-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm hover:text-accent-color-active font-medium"
+              className="block mt-2 text-accent-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm hover:text-accent-color-active font-medium"
             >
               take a look
             </a>

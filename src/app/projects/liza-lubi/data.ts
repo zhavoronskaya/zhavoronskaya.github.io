@@ -4,91 +4,98 @@ import { IProject } from "@/interfaces";
 const lizaLubi: IProject = {
   name: ["Liza Lubi ", "Music"],
   label: "Official music website of Liza Lubi",
-  thumbnailDIscription: "",
-  thumbnailVideoUrl: "/video/virtudes-compressed-720.mp4",
-  thumbnailVideoUrl1080: "/video/virtudes-compressed-1080.mp4",
-  routing: "/projects/parque-das-virtudes",
-  link: `${TechnologyLinks.VIRTUDES}`,
+  artistLink: "https://www.instagram.com/lizalubimova/?hl=en",
+  thumbnailDIscription: "Interactive WebGPU music experience",
+  thumbnailVideoUrl: "/video/liza-compressed-720.mp4",
+  thumbnailVideoUrl1080: "/video/liza-compressed-1080.mp4",
+  projectImages: [
+    "/projects/liza-lubi/liza2.webp",
+    "/projects/liza-lubi/liza8.webp",
+    "/projects/liza-lubi/liza4.webp",
+  ],
+  routing: "/projects/liza-lubi",
+  link: "https://liza-lubi.vercel.app",
   description:
-    " Web project dedicated to park in Porto, Portugal, representing a low poly 3D map of a park.",
+    "A minimalist music website, built around the idea of “sound in every button” / where audio, motion, and interaction merge into one immersive experience.",
   technology: [
-    { src: `${TechnologyLinks.BLENDER}`, name: "Blender" },
-    { src: `${TechnologyLinks.THREEJS}`, name: "Three.js" },
     { src: `${TechnologyLinks.NEXT}`, name: "Next.js" },
+    { src: `${TechnologyLinks.REACT}`, name: "React" },
+    { src: `${TechnologyLinks.WEBGPU}`, name: "WebGPU" },
+    { src: `${TechnologyLinks.THREEJS}`, name: "Three.js (TSL)" },
+    { src: `${TechnologyLinks.CANVAS}`, name: "Canvas 2D" },
   ],
   challenges: [
     {
-      info: "The number of polygons in a model has a significant impact",
+      info: "High-performance hero scene with WebGPU",
       details: [
-        "Especially if you want the application to work on mobile devices. In the initial version, the tree models were extremely detailed. Given the number of trees in the park, this led to the app crashing on lower-end devices due to the high polygon count.",
+        "The hero section features a particle-based scene powered by WebGPU and custom TSL shaders via Three.js. Heavy calculations are moved to a Web Worker to keep the main thread responsive and ensure smooth animation.",
       ],
     },
     {
-      info: "Enhancing 3D graphics and performance through texture baking",
+      info: "Audio-driven visual feedback",
       details: [
-        "Using built-in Three.js materials, light sources, and shadows can be very resource-intensive. By switching to baked textures, I achieved rich colors, realistic static lighting, and soft shadows, which significantly improved both performance and visual quality.",
+        "A real-time audio analyzer built with the Canvas 2D API transforms frequency data into reactive visual elements, strengthening the connection between sound and interface.",
       ],
     },
     {
-      info: "How to implement camera animation on scroll without using external libraries",
+      info: "Scroll-based parallax depth",
       details: [
-        "This involved creating a map of camera and target positions, then interpolating these values based on scroll offset.",
+        "Images use scroll-only parallax effects to create spatial layering and depth while maintaining a clean minimalist layout.",
       ],
     },
     {
-      info: "How to create CSS animations for text and images triggered by page scroll without external libraries",
+      info: "Extensive CSS animation system",
       details: [
-        "I developed a complex CSS animation that calculates the visible area of an element as a percentage and triggers the animation accordingly.",
-      ],
-    },
-    {
-      info: "Building a custom hook for audio control",
-      details: [
-        "An essential feature for me was adding smooth fade-in/fade-out effects for audio elements.",
-      ],
-    },
-    {
-      info: "Animating props in the scene’s environment to toggle between dark/light mode",
-      details: [
-        "This was aimed at providing a smoother visual transition when switching between park views in both modes.",
+        "Numerous custom CSS animations enhance typography, transitions, and UI states, creating a refined and visually polished experience.",
       ],
     },
   ],
-  linkToSource: "https://github.com/zhavoronskaya/virtudes",
+  linkToSource: "",
   role: {
-    name: "Design, Modeling, Development",
+    name: "Design, UI/UX Development, Frontend Development",
     description:
-      "I was responsible for designing, creating, and implementing both the visual and interactive elements of the project. This included conceptualizing the overall design, building 3D models, and developing the project to ensure an engaging user experience.",
+      "Led the full development cycle — from concept and UI/UX design to real-time graphics and interactive audio implementation. Focused on merging sound, motion, and minimalism into a cohesive digital music experience.",
   },
   developmentSteps: [
     {
-      name: "3D Modeling in Blender",
+      name: "Concept & UI/UX Design",
       items: [
-        "Creating a map from svg (walls, ground)",
-        "Adding props (trees, sculptures, benches etc.)",
-        "Material Shading for props and walls",
-        "Model optimisation (decrease vertex amount)",
-        "Baking textures",
+        "Defining artistic direction and interaction philosophy",
+        "Designing a minimalist, audio-first interface",
+        "Planning motion, transitions, and visual hierarchy",
       ],
     },
     {
-      name: "Design",
+      name: "Real-Time Graphics",
       items: [
-        "Content & Photo Selection",
-        "Preparing a multimedia element (field recording sound of the park, mastering)",
-        "Landing Page Design",
-        "Responsive Layout",
+        "Building a particle-based hero scene with WebGPU",
+        "Writing custom shaders using Three.js TSL",
+        "Offloading scene computation to a Web Worker",
       ],
     },
     {
-      name: "Code",
+      name: "Audio & Visual Integration",
       items: [
-        "Skybox & Environment settings",
-        "Scroll based animation (camera movement)",
-        "Performance optimisation (level of detail)",
-        "CSS animation",
-        "Light & Dark Mode",
-        "Background music toggle",
+        "Developing a custom audio interaction system",
+        "Implementing a real-time Canvas 2D audio analyzer",
+        "Connecting sound data to visual feedback elements",
+      ],
+    },
+    {
+      name: "Frontend & UI Development",
+      items: [
+        "Implementing scroll-based parallax effects",
+        "Creating numerous custom CSS animations",
+        "Ensuring responsive layout across devices",
+        "Performance optimization and rendering efficiency",
+      ],
+    },
+    {
+      name: "Deployment",
+      items: [
+        "Cross-browser and cross-device testing",
+        "GPU and audio performance tuning",
+        "Deployment (in progress)",
       ],
     },
   ],

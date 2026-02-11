@@ -20,6 +20,10 @@ const config: Config = {
       hintt: ["28px", "36px"],
       hint: ["40px", "48px"],
 
+      captionm: ["10px", "14px"],
+      captiont: ["11px", "16px"],
+      caption: ["12px", "16px"],
+
       remarkm: ["12px", "16px"],
       remarkt: ["16px", "20px"],
       remark: ["24px", "28px"],

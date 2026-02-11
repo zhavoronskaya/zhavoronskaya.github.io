@@ -24,35 +24,32 @@ export function ImageProjectAnimation() {
           // start: "5% bottom",
         },
       })
-        .to(
+        .fromTo(
           ".image-2",
+          { x: -50 },
           {
             duration: 0.2,
             ease: "power2.inOut",
             x: 0,
-            // yoyo: true,
             immediateRender: false,
             scrollTrigger: {
               trigger: ".gallery",
               scrub: true,
-              // start: "5% bottom",
             },
           },
           "<"
         )
-        .to(
+        .fromTo(
           ".image-3",
+          { x: 50 },
           {
             duration: 0.2,
             ease: "power2.inOut",
-            // yPercent: -50,
             x: 0,
-            yoyo: true,
             immediateRender: false,
             scrollTrigger: {
               trigger: ".gallery",
               scrub: true,
-              // start: "5% bottom",
             },
           },
           "<"

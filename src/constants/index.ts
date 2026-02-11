@@ -1,3 +1,12 @@
+export const NAV_LINKS = [
+  { href: "/", label: "home" },
+  { href: "/shots", label: "shots" },
+  { href: "/projects", label: "projects" },
+  { href: "/skills", label: "skills" },
+  { href: "/music", label: "music" },
+  { href: "/contact", label: "contact" },
+] as const;
+
 export const SocialLinks = {
   BANDCAMP: "https://zhav0ronskaya.bandcamp.com/",
   SOUNDCLOUD: "https://soundcloud.com/zhavoronskaya",
@@ -10,7 +19,11 @@ export const SocialLinks = {
 
 export const TechnologyLinks = {
   WEBGL: "https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API",
+  WEBGPU: "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API",
+  CANVAS:
+    "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
   GLSL: "https://en.wikipedia.org/wiki/OpenGL_Shading_Language",
+  RAPIER: "https://rapier.rs/",
   REACT: "https://react.dev/",
   FIBER: "https://docs.pmnd.rs/react-three-fiber/getting-started/introduction",
   DREI: "https://github.com/pmndrs/drei",
