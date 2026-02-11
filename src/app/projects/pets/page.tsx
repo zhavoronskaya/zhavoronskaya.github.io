@@ -25,7 +25,7 @@ const PetsPage = () => {
           deployment.
         </span>
       </div>
-      <div className="mt-16 mb-10 sm:mt-36 sm:mb-20">
+      <div className="mt-20 mb-10 sm:mt-36 sm:mb-20">
         <ProjectThumbnail
           project={lizaLubi}
           compact

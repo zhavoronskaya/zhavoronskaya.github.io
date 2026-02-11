@@ -40,6 +40,7 @@ import { createPortal } from "react-dom";
 import useScene from "@/hooks/useScene";
 import { Vector2Like } from "@/interfaces";
 import { isMaterial } from "@/helpers/Material";
+import isMobile from "@/helpers/DeviceDefenition";
 
 type Props = {};
 
@@ -66,6 +67,9 @@ const getRandomSign = () => {
 const camera = getInitialCamera();
 
 const BirdsScene = () => {
+  const mobile = isMobile().phone || isMobile().tablet;
+  const dpr: [number, number] = mobile ? [1, 1.25] : [1, 1.5];
+
   return (
     <>
       <Loader
@@ -81,7 +85,7 @@ const BirdsScene = () => {
         // dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
       />
 
-      <BaseCanvas gl={{ antialias: true }} camera={camera} dpr={[1, 1.5]}>
+      <BaseCanvas gl={{ antialias: true }} camera={camera} dpr={dpr}>
         <ambientLight />
         <Particles />
 

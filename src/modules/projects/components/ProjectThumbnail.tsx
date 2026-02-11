@@ -52,11 +52,13 @@ const ProjectThumbnail = ({
   const titleBlock = fullWidthClickable && (
     <h4
       className={cn(
-        "absolute z-10 left-0 top-[-2.5rem] text-hm sm:text-ht lg:text-h font-medium mix-blend-difference text-gray-200"
+        "absolute z-10 left-0 top-[-1.5rem] sm:top-[-2.2rem] lg:top-[-4rem] text-hmm sm:text-hlt lg:text-hl font-medium mix-blend-difference text-gray-200"
       )}
     >
       {project.name[0]}
-      <span className="text-gray-200/90">{project.separator}</span>
+      <span className="block sm:inline text-gray-200/90">
+        {project.separator}
+      </span>
       {project.name[1]}
     </h4>
   );
