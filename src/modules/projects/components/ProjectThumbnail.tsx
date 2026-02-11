@@ -38,8 +38,9 @@ const ProjectThumbnail = ({
       className="absolute inset-0 flex flex-col justify-end pointer-events-none"
       aria-hidden
     >
-      <div className="flex flex-col items-end gap-4 sm:gap-6 p-6 sm:p-8 lg:p-10">
-        <span className="text-remarkm sm:text-remarkt lg:text-remark text-white/90 drop-shadow-md mix-blend-difference">
+      <div className="flex flex-col items-end  text-right gap-4 sm:gap-6 p-6 sm:p-8 lg:p-10">
+        {/* translateZ(0) forces GPU layer so mix-blend-difference works in Safari/iOS */}
+        <span className="text-remarkm sm:text-remarkt lg:text-remark text-white/90 drop-shadow-md mix-blend-difference [transform:translateZ(0)]">
           {project.thumbnailDIscription}
         </span>
         <span className="text-pillsmm sm:text-pillsmt lg:text-pillsm font-medium uppercase text-accent-color group-hover:text-accent-color-active drop-shadow-lg transition-colors duration-200">
@@ -52,7 +53,7 @@ const ProjectThumbnail = ({
   const titleBlock = fullWidthClickable && (
     <h4
       className={cn(
-        "absolute z-10 left-0 top-[-1.5rem] sm:top-[-2.2rem] lg:top-[-4rem] text-hmm sm:text-hlt lg:text-hl font-medium mix-blend-difference text-gray-200"
+        "absolute z-10 left-0 top-[-1.5rem] sm:top-[-2.2rem] lg:top-[-4rem] text-hmm sm:text-hlt lg:text-hl font-medium mix-blend-difference text-gray-200 [transform:translateZ(0)]"
       )}
     >
       {project.name[0]}
@@ -74,7 +75,7 @@ const ProjectThumbnail = ({
               containerClassName ?? "aspect-[21/9] sm:aspect-video"
             )}
           >
-            <div className="absolute inset-0 overflow-hidden rounded-xl">
+            <div className="absolute inset-0 overflow-hidden rounded-xl isolate">
               {videoBlock}
               {overlayBlock}
             </div>
