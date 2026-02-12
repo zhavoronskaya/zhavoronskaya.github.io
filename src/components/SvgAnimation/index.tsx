@@ -196,6 +196,79 @@ export function PetsSvgAnimation() {
   return null;
 }
 
+export function ClientSvgAnimation() {
+  const tl = gsap.timeline();
+
+  useGSAP(
+    () => {
+      tl.to(".client-bulb", {
+        duration: 0.9,
+        rotation: -6,
+        scale: 1.05,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        transformOrigin: "50% 40%",
+        scrollTrigger: {
+          trigger: ".client-title",
+        },
+      })
+        .to(
+          ".client-bulb-rays",
+          {
+            duration: 0.18,
+            scale: 1.35,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut",
+            transformOrigin: "50% 50%",
+            scrollTrigger: {
+              trigger: ".client-title",
+            },
+          },
+          "<"
+        )
+        .to(
+          ".client-bulb-glass",
+          {
+            duration: 0.4,
+            scaleY: 0.95,
+            scaleX: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            transformOrigin: "50% 60%",
+            scrollTrigger: {
+              trigger: ".client-title",
+            },
+          },
+          "<"
+        )
+        .to(
+          ".client-bulb-light",
+          {
+            duration: 0.4,
+            scaleY: 0.95,
+            scaleX: 1,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            transformOrigin: "50% 80%",
+            scrollTrigger: {
+              trigger: ".client-title",
+            },
+          },
+          "<"
+        );
+
+      ScrollTrigger.refresh();
+    },
+    { dependencies: [] }
+  );
+
+  return null;
+}
+
 export function ProjectsSvgAnimation() {
   const tl = gsap.timeline();
   useGSAP(

@@ -28,7 +28,6 @@ const AnimatedSwapTitle = ({
 
   return (
     <div className={className}>
-      {/* First line */}
       <div className="relative h-[1.2em] overflow-hidden">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span

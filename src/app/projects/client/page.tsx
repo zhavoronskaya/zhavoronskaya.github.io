@@ -1,14 +1,20 @@
 import ProjectHeader from "@/modules/projects/components/ProjectHeader";
 import JumpingText from "@/components/JumpingText";
 import { AwardLinks } from "@/constants";
+import { BulbClient } from "@/components/UI/decor";
+import { ClientSvgAnimation } from "@/components/SvgAnimation";
 
 const StudioPage = () => {
   return (
     <div className="px-8 relative">
+      <ClientSvgAnimation />
+      <div className="absolute right-[-40px] top-[-40px] sm:right-2 sm:top-[0%] lg:right-4 lg:top-[0%] z-20 pointer-events-none">
+        <BulbClient className="w-[260px] sm:w-[420px] lg:w-[540px]" />
+      </div>
       <ProjectHeader />
       <div className="client-title title mt-16 sm:mt-32">
         <JumpingText className="text-hxlm sm:text-hxlt lg:text-[176px]/[162px] xl:text-hxl font-bold uppercase block">
-          client
+          Studio Works
         </JumpingText>
         <span className="block text-bodysm sm:text-bodyst lg:sm:text-bodys mt-8 sm:mt-16 lg:mt-24">
           Client projects delivered in collaboration with talented teams, where
