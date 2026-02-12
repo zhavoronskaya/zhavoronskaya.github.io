@@ -10,8 +10,8 @@ const lizaLubi: IProject = {
   thumbnailVideoUrl1080: "/video/liza-compressed-1080.mp4",
   projectImages: [
     "/projects/liza-lubi/liza2.webp",
-    "/projects/liza-lubi/liza8.webp",
-    "/projects/liza-lubi/liza4.webp",
+    "/projects/liza-lubi/liza10.webp",
+    "/projects/liza-lubi/liza11.webp",
   ],
   routing: "/projects/liza-lubi",
   link: "https://liza-lubi.vercel.app",
