@@ -82,13 +82,13 @@ const ProjectsPage = ({}: Props) => {
         </div>
         <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
           <CloudButtonLink
-            href="/projects/studio"
+            href="/projects/client"
             internal
             size="large"
             mirrorSvg
             className="block w-full h-full"
           >
-            studio
+            client
           </CloudButtonLink>
         </div>
       </div>

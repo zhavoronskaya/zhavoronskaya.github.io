@@ -16,7 +16,7 @@ const lizaLubi: IProject = {
   routing: "/projects/liza-lubi",
   link: "https://liza-lubi.vercel.app",
   description:
-    "A minimalist music website, built around the idea of “sound in every button” / where audio, motion, and interaction merge into one immersive experience.",
+    "A minimalist music website built around the idea of “sound in every button” // a synth-inspired interactive space where users mix and layer sound by hovering over elements, blending audio, motion, and interface into one immersive experience.",
   technology: [
     { src: `${TechnologyLinks.NEXT}`, name: "Next.js" },
     { src: `${TechnologyLinks.REACT}`, name: "React" },

@@ -17,9 +17,15 @@ export const SocialLinks = {
   TWITTER: "https://x.com/zhav0ronskaya",
 };
 
+export const AwardLinks = {
+  CSS_DESIGN_AWARDS: "https://www.cssdesignawards.com/",
+  AWWWARDS: "https://www.awwwards.com/",
+};
+
 export const TechnologyLinks = {
   WEBGL: "https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API",
   WEBGPU: "https://developer.mozilla.org/en-US/docs/Web/API/WebGPU_API",
+  TSL: "https://github.com/mrdoob/three.js/wiki/Three.js-Shading-Language",
   CANVAS:
     "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
   GLSL: "https://en.wikipedia.org/wiki/OpenGL_Shading_Language",

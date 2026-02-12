@@ -6,6 +6,7 @@ import lizaLubi from "../liza-lubi/data";
 import { DogProjects } from "@/components/UI/decor";
 import { PetsSvgAnimation } from "@/components/SvgAnimation";
 import soCoffee from "../so-coffee/data";
+import audioParticlesBubble from "../audio-particles-bubble/data";
 
 const PetsPage = () => {
   return (
@@ -20,8 +21,8 @@ const PetsPage = () => {
           pets
         </JumpingText>
         <span className="block text-bodysm sm:text-bodyst lg:sm:text-bodys mt-8 sm:mt-16 lg:mt-24">
-          Personal projects where I wore multiple hats in some cases / as a
-          developer, designer, and everything in between / from concept to
+          Personal projects where I wore multiple hats in some cases // as a
+          developer, designer, and everything in between // from concept to
           deployment.
         </span>
       </div>
@@ -37,12 +38,21 @@ const PetsPage = () => {
           aria-hidden
         />
         <ProjectThumbnail
+          project={audioParticlesBubble}
+          compact
+          fullWidthClickable
+          containerClassName="h-[60vh]"
+        />
+        <div
+          className="my-16 sm:my-28 border-t border-dashed border-[#F08CAE]"
+          aria-hidden
+        />
+        <ProjectThumbnail
           project={soCoffee}
           compact
           fullWidthClickable
           containerClassName="h-[60vh]"
         />
-
         <div
           className="my-16 sm:my-28 border-t border-dashed border-[#F08CAE]"
           aria-hidden
