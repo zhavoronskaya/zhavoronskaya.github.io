@@ -108,7 +108,7 @@ export default function ClientVideoGrid({
   items = CLIENT_VIDEO_GRID_ITEMS,
 }: ClientVideoGridProps) {
   return (
-    <div className="w-full mt-16 sm:mt-24 lg:mt-32 overflow-hidden">
+    <div className="mt-20 sm:mt-32 lg:mt-40 mb-16 sm:mb-32 w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 overflow-hidden">
       <div className="grid grid-cols-2 grid-rows-4 aspect-[1/2] gap-0 w-full sm:aspect-auto sm:grid-cols-12 sm:grid-rows-[22vh_22vh_26vh_24vh_24vh_28vh_28vh]">
         {items.map(({ slug, name, gridClass, tags, routing }) => (
           <VideoCell
