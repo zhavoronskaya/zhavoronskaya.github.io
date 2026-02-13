@@ -7,7 +7,7 @@ import { ClientSvgAnimation } from "@/components/SvgAnimation";
 
 const StudioPage = () => {
   return (
-    <div className="px-8 relative">
+    <div className="px-8 relative overflow-x-hidden">
       <ClientSvgAnimation />
       <div className="absolute right-[-40px] top-[-40px] sm:right-2 sm:top-[0%] lg:right-4 lg:top-[0%] z-20 pointer-events-none">
         <BulbClient className="w-[260px] sm:w-[420px] lg:w-[540px]" />
