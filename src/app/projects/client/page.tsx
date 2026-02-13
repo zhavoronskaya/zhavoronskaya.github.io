@@ -1,5 +1,6 @@
 import ProjectHeader from "@/modules/projects/components/ProjectHeader";
 import JumpingText from "@/components/JumpingText";
+import ClientVideoGrid from "@/components/ClientVideoGrid";
 import { AwardLinks } from "@/constants";
 import { BulbClient } from "@/components/UI/decor";
 import { ClientSvgAnimation } from "@/components/SvgAnimation";
@@ -20,7 +21,7 @@ const StudioPage = () => {
           Client projects delivered in collaboration with talented teams, where
           I worked as a creative frontend developer // 3D and interactive
           experiences.
-          <br /> Recognized by{" "}
+          <br /> Some were recognized by{" "}
           <a
             href={AwardLinks.CSS_DESIGN_AWARDS}
             target="_blank"
@@ -41,6 +42,8 @@ const StudioPage = () => {
           .
         </span>
       </div>
+
+      <ClientVideoGrid />
     </div>
   );
 };

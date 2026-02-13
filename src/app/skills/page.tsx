@@ -91,8 +91,6 @@ const SkillsPage = ({}: Props) => {
                 Creative developer with a focus on visual design and generative
                 art.
                 <br />
-                Currently based and working in Porto, Portugal.
-                <br />
                 My passion lies in blending the boundaries between technology
                 and artistic expression, utilizing cutting-edge tools to bring
                 imaginative concepts to life and continually pushing the

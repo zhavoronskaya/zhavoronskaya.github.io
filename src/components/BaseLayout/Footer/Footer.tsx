@@ -11,7 +11,7 @@ type Props = {
 const Footer = ({ bgRight }: Props) => {
   return (
     <footer
-      className="relative bg-background-color pt-4 pb-8 px-8 mt-0"
+      className="relative bg-background-color pt-4 pb-8 px-4 sm:px-8 mt-0"
       style={bgRight != null ? { marginRight: bgRight } : undefined}
     >
       <div className="absolute top-0 left-8 w-2 h-2" aria-hidden>
@@ -45,8 +45,8 @@ const Footer = ({ bgRight }: Props) => {
         </svg>
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-12 gap-x-4 gap-y-6 sm:gap-y-4 items-start">
-        <div className="min-w-0 h-full self-start col-span-3 sm:col-span-6 flex flex-col sm:justify-between order-4 sm:order-1 mt-4 sm:mt-0">
+      <div className="grid grid-cols-3 sm:grid-cols-12 gap-x-0 sm:gap-x-4 gap-y-6 sm:gap-y-4 items-start">
+        <div className="min-w-0 h-full self-start col-span-3 sm:col-span-6 flex flex-col sm:justify-between order-4 sm:order-1 mt-0">
           <AnimatedSwapTitle
             topText="Work // play"
             bottomText="code // jam"
