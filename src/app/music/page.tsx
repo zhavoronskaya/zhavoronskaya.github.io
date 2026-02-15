@@ -12,7 +12,7 @@ const MusicPage = ({}: Props) => {
   return (
     <>
       <MusicSvgAnimation />
-      <div className="px-8">
+      <div className="px-6 sm:px-8">
         <div className="mt-16 sm:mt-32 sm:grid sm:grid-cols-12 sm:gap-4">
           <div className="title sm:col-start-1 sm:col-span-7">
             <JumpingText className="text-hxlm sm:text-hxlt lg:text-[176px]/[162px] xl:text-hxl font-bold uppercase">
@@ -55,7 +55,7 @@ const MusicPage = ({}: Props) => {
             </div>
 
             <div className="sm:hidden relative mt-8 sm:mt-0">
-              <div className="absolute h-36 inset-x-[-16px] ">
+              <div className="absolute h-36 inset-x-[0px] sm:inset-x-[-16px]">
                 <Image
                   width="865"
                   height="1280"

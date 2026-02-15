@@ -13,13 +13,11 @@ import TransitionLink from "@/components/TransitionLink";
 function VideoCell({
   slug,
   name,
-  gridClass,
   tags,
   routing,
 }: {
   slug: string;
   name: string;
-  gridClass: string;
   tags: ClientVideoGridTag[];
   routing: string;
 }) {
@@ -49,14 +47,12 @@ function VideoCell({
 
   return (
     <div
-      className={cn(
-        "group relative isolate w-full min-h-0 overflow-hidden flex flex-col sm:h-full sm:aspect-auto sm:flex-row",
-        gridClass
-      )}
+      data-slug={slug}
+      className="group relative isolate w-full min-h-0 overflow-hidden flex flex-col md:h-full md:flex-row"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="sm:hidden flex-shrink-0 pb-1.5 order-first">
+      <div className="md:hidden flex-shrink-0 pb-1.5 order-first">
         <span className="block text-remarkm font-bold uppercase text-left text-primary-color">
           {name}
         </span>
@@ -64,7 +60,7 @@ function VideoCell({
 
       <TransitionLink
         href={routing}
-        className="block w-full overflow-hidden relative aspect-square sm:aspect-auto flex-shrink-0 sm:flex-none sm:min-h-0 sm:h-full"
+        className="block w-full overflow-hidden relative aspect-square flex-shrink-0 md:aspect-auto md:flex-none md:min-h-0 md:h-full"
       >
         <video
           ref={videoRef}
@@ -93,7 +89,7 @@ function VideoCell({
 
         <div
           className={cn(
-            "absolute inset-0 hidden sm:flex flex-col items-center justify-center bg-border-color transition-opacity duration-300 z-10 ease-in px-4",
+            "absolute inset-0 hidden md:flex flex-col items-center justify-center bg-border-color transition-opacity duration-300 z-10 ease-in px-4",
             isHovered ? "opacity-100" : "opacity-0"
           )}
         >
@@ -117,7 +113,7 @@ function VideoCell({
       </TransitionLink>
 
       {tags.length > 0 && (
-        <div className="sm:hidden flex-shrink-0 pt-1.5">
+        <div className="md:hidden flex-shrink-0 pt-1.5">
           <ul className="flex flex-wrap gap-1">
             {tags.map((tag) => (
               <li key={tag.label} className="inline-flex">
@@ -141,19 +137,21 @@ export default function ClientVideoGrid({
   items = CLIENT_VIDEO_GRID_ITEMS,
 }: ClientVideoGridProps) {
   return (
-    <div className="w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 mt-16 sm:mt-24 lg:mt-32 mb-4 sm:mb-8 overflow-hidden px-[16px] sm:px-[24px]">
-      <div className="grid grid-cols-2 gap-x-4 gap-y-8 w-full auto-rows-auto sm:grid-cols-12 sm:grid-rows-[22vh_22vh_26vh_24vh_24vh_28vh_28vh] sm:gap-x-4 sm:gap-y-4">
-        {items.map(({ slug, name, gridClass, tags, routing }) => (
+    <div className="w-screen max-w-[100vw] relative left-1/2 -translate-x-1/2 mt-16 sm:mt-24 lg:mt-32 mb-4 sm:mb-8 overflow-hidden px-[36px] sm:px-[48px] md:px-[24px]">
+      <div className="client-video-grid-desktop grid grid-cols-1 gap-8 w-full auto-rows-auto sm:grid-cols-2 sm:gap-x-4 md:grid-cols-12 md:gap-y-4">
+        {items.map(({ slug, name, tags, routing }) => (
           <VideoCell
             key={slug}
             slug={slug}
             name={name}
-            gridClass={gridClass}
             tags={tags ?? []}
             routing={routing}
           />
         ))}
-        <div className="min-h-0 min-w-0 sm:hidden" aria-hidden />
+        <div
+          className="hidden sm:block min-h-0 min-w-0 md:contents"
+          aria-hidden
+        />
       </div>
     </div>
   );

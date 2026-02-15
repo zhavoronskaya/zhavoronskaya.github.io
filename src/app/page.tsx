@@ -127,7 +127,7 @@ export default function Home() {
         <BirdsScene />
       </div>
 
-      <div className="relative px-8 select-none ">
+      <div className="relative px-6 sm:px-8 select-none ">
         <div className="grid grid-cols-3 sm:grid-cols-12 gap-4 mt-16 sm:mt-32 relative">
           <div
             className="section-1 col-start-1 col-span-3 sm:col-start-1 sm:col-span-11 lg:col-start-1 lg:col-span-12 mb-64 sm:mb-72"

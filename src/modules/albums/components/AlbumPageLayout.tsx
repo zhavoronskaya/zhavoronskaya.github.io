@@ -13,7 +13,7 @@ type Props = {
 
 const AlbumPageLayout = ({ album, children }: Props) => {
   return (
-    <div className="px-8">
+    <div className="px-6 sm:px-8">
       <AlbumHeader />
 
       <div className="mt-36 lg:mt-32">

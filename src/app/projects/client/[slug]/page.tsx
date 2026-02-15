@@ -27,7 +27,7 @@ export default async function ClientProjectPage({ params }: Props) {
   return (
     <>
       <ProjectLayoutSvgAnimation />
-      <div className="px-8">
+      <div className="px-6 sm:px-8 ">
         <ProjectHeader />
         <div className="mt-16 sm:mt-36 sm:grid sm:grid-cols-12 relative">
           <div className="sm:col-start-1 sm:col-span-11">

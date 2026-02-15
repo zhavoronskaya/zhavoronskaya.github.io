@@ -10,7 +10,7 @@ const ShotsPage = ({}: Props) => {
   return (
     <>
       <ShotsSvgAnimation />
-      <div className="px-8 relative">
+      <div className="px-6 sm:px-8 relative">
         <div className="shots-bird absolute right-[10%] top-4 sm:right-[14%] sm:top-24 lg:right-[14%] lg:top-36 z-20 pointer-events-none">
           <BirdShot className="w-[112px] sm:w-[244px] lg:w-[320px]" />
         </div>

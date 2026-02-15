@@ -16,7 +16,7 @@ type Props = {
 };
 const ShotPageLayout = ({ shot, children }: Props) => {
   return (
-    <div className="px-8">
+    <div className="px-6 sm:px-8">
       <ShotHeader />
       <div className="mt-36 sm:mt-32">
         <FadingText className="subtitle text-hlm sm:text-hlt lg:text-hl font-medium uppercase">

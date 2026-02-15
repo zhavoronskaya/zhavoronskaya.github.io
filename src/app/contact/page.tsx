@@ -11,7 +11,7 @@ const ContactPage = ({}: Props) => {
   return (
     <>
       <ContactSvgAnimation />
-      <div className="px-8">
+      <div className="px-6 sm:px-8">
         <div className="mt-16 sm:mt-32 grid grid-cols-3 gap-4">
           <div className="col-start-1 col-span-3">
             {/* <h1 className="sm:mt-12 uppercase text-labelm sm:text-labelt lg:text-label font-bold ">

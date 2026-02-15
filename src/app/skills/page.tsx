@@ -17,7 +17,7 @@ const SkillsPage = ({}: Props) => {
   return (
     <>
       <SkillsSvgAnimation />
-      <div className="px-8">
+      <div className="px-6 sm:px-8">
         <div className="mt-16 sm:mt-32 sm:grid sm:grid-cols-12 sm:gap-4">
           <div className=" sm:col-start-6 sm:col-span-7 lg:col-start-5 lg:col-span-8">
             <div>

@@ -8,7 +8,7 @@ type Props = {};
 
 const ProjectsPage = ({}: Props) => {
   return (
-    <div className="px-8 relative">
+    <div className="px-6 sm:px-8 relative ">
       <ProjectsSvgAnimation />
       <div className="projects-flower absolute right-2 top-[0%]  sm:right-2 sm:top-[0%] lg:right-4 lg:top-[0%] z-20 pointer-events-none">
         <FlowerProject className="w-[200px] sm:w-[380px] lg:w-[480px]" />

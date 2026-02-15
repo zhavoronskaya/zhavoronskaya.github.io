@@ -10,7 +10,7 @@ import audioParticlesBubble from "../audio-particles-bubble/data";
 
 const PetsPage = () => {
   return (
-    <div className="px-8 relative">
+    <div className="px-6 sm:px-8 relative">
       <PetsSvgAnimation />
       <div className="pets-dog absolute right-2 top-[0%] sm:right-2 sm:top-[0%] lg:right-4 lg:top-[0%] z-20 pointer-events-none">
         <DogProjects className="w-[280px] sm:w-[480px] lg:w-[600px]" />
@@ -31,7 +31,7 @@ const PetsPage = () => {
           project={lizaLubi}
           compact
           fullWidthClickable
-          containerClassName="h-[60vh]"
+          containerClassName="aspect-square sm:aspect-auto sm:h-[60vh]"
         />
         <div
           className="my-16 sm:my-28 border-t border-dashed border-[#F08CAE]"
@@ -41,7 +41,7 @@ const PetsPage = () => {
           project={audioParticlesBubble}
           compact
           fullWidthClickable
-          containerClassName="h-[60vh]"
+          containerClassName="aspect-square sm:aspect-auto sm:h-[60vh]"
         />
         <div
           className="my-16 sm:my-28 border-t border-dashed border-[#F08CAE]"
@@ -51,7 +51,7 @@ const PetsPage = () => {
           project={soCoffee}
           compact
           fullWidthClickable
-          containerClassName="h-[60vh]"
+          containerClassName="aspect-square sm:aspect-auto sm:h-[60vh]"
         />
         <div
           className="my-16 sm:my-28 border-t border-dashed border-[#F08CAE]"
@@ -61,7 +61,7 @@ const PetsPage = () => {
           project={virtudes}
           compact
           fullWidthClickable
-          containerClassName="h-[60vh]"
+          containerClassName="aspect-square sm:aspect-auto sm:h-[60vh]"
         />
       </div>
     </div>
