@@ -70,7 +70,7 @@ function VideoCell({
           autoPlay
           preload="metadata"
           poster={`/video/${slug}-poster.webp`}
-          className="h-full w-full object-cover transition-transform duration-300 scale-100 group-hover:scale-[1.02] [transform:translateZ(0)]"
+          className="h-full w-full object-cover transition-transform duration-300 scale-100 group-hover:scale-[1.02] [transform:translateZ(0)] rounded-lg md:rounded-none"
         >
           <source
             src={`/video/${slug}-compressed-${

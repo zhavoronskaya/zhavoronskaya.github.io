@@ -4,8 +4,6 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, MotionPathPlugin } from "gsap/all";
 
-// import isMobile from "@/helpers/DeviceDefenition";
-
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(MotionPathPlugin);
 gsap.registerPlugin(useGSAP);
@@ -22,7 +20,6 @@ export function HomeSvgAnimation() {
         yoyo: true,
         scrollTrigger: {
           trigger: ".section-1",
-          // start: "5% bottom",
         },
       });
       tl.to(
@@ -62,8 +59,6 @@ export function ShotsSvgAnimation() {
         transformOrigin: "50% 86%",
         scrollTrigger: {
           trigger: ".shots-section-1",
-          // scrub: true,
-          // start: "5% bottom",
         },
       });
       tl.to(
@@ -302,7 +297,6 @@ export function ProjectsSvgAnimation() {
               { x: 120, y: -220, scale: 1.3, opacity: 0.75 },
               { x: 0, y: -300, scale: 1.4, opacity: 1 },
             ],
-            // autoRotate: true,
             alignOrigin: [0.5, 0.5],
             curviness: 2,
           },
@@ -362,8 +356,6 @@ export function SkillsSvgAnimation() {
         transformOrigin: "50% 86%",
         scrollTrigger: {
           trigger: ".skills-section-1",
-          // scrub: true,
-          // start: "5% bottom",
         },
       })
         .to(
@@ -387,7 +379,6 @@ export function SkillsSvgAnimation() {
           ".skills-bird",
           {
             duration: 1,
-            // rotation: 45,
             x: 30,
             scale: 1.2,
             repeat: -1,
@@ -441,7 +432,6 @@ export function SkillsSvgAnimation() {
 
             repeat: -1,
             immediateRender: false,
-            // yoyo: true,
             transformOrigin: "50% 26%",
             ease: "sine.out",
             scrollTrigger: {
@@ -491,7 +481,6 @@ export function MusicSvgAnimation() {
             repeat: -1,
             delay: 0.1,
             stagger: 0.2,
-            // yoyo: true,
             immediateRender: false,
             transformOrigin: "50% 86%",
             ease: "linear",

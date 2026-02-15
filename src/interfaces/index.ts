@@ -1,5 +1,3 @@
-import { Vector2 } from "three";
-
 export interface IImageData {
   width: number;
   height: number;
@@ -31,7 +29,6 @@ export interface IProject {
   thumbnailDIscription?: string;
   thumbnailVideoUrl: string;
   thumbnailVideoUrl1080?: string;
-  // thumbnailSize: ImageSizes;
   label: string;
   artistLink?: string;
   link: string;
@@ -41,8 +38,10 @@ export interface IProject {
   role?: Role;
   technology?: Technolody[];
   challenges?: ChallengesStep[];
+  challengesVariant?: "list" | "cards" | "timeline" | "minimal";
   linkToSource?: string;
   developmentSteps?: DevelopmentSteps[];
+  developmentStepsVariant?: "list" | "timeline";
 }
 
 export interface IRefData {
@@ -82,9 +81,15 @@ export type DevelopmentSteps = {
   name: string;
   items: string[];
 };
+export type WhatIDidPart = { type: "text"; value: string };
+
+/** String = plain or HTML. Array = mixed text parts (for links etc) */
+export type WhatIDidItem = string | WhatIDidPart[];
+
 export type Role = {
   name: string;
-  description: string;
+  description?: string;
+  whatIDid?: WhatIDidItem[];
 };
 export type ChallengesStep = {
   info: string;
@@ -95,11 +100,6 @@ export type ImageSizes = {
   width: number;
   height: number;
 };
-
-// export type CanvasProps = {
-//   children: React.ReactNode;
-//   camera: Camera;
-// };
 
 export type SizeLike = {
   width: number;

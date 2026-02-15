@@ -1,5 +1,3 @@
-// import { useEffect } from "react";
-// import { animatePageIn, animatePageOut } from "../TransitionLink/Animation";
 import Image from "next/image";
 
 type Props = {};

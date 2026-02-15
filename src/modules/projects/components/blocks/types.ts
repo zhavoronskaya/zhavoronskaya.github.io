@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+export const PROJECT_IMAGE_SECTION_SPACING = "mt-8 sm:mt-12 lg:mt-20";
 
 export type ProjectBlockName =
   | "title"
@@ -22,22 +22,21 @@ export type ProjectImageSectionItem = {
 
 export type ProjectImageSectionLayout = "one" | "oneLeft" | "oneRight";
 
+export type ProjectImageSectionAnimation = "left" | "right" | "scale";
+
+export type ProjectImageSectionHeightVariant = "default" | "compact";
+
 export type ProjectImageSection = {
   type: "image";
   layout: ProjectImageSectionLayout;
+  animation?: ProjectImageSectionAnimation;
   image: ProjectImageSectionItem;
   priority?: boolean;
+  scaleTo?: number;
+  heightVariant?: ProjectImageSectionHeightVariant;
 };
 
-export type ProjectGallerySection = {
-  type: "gallery";
-  content: ReactNode;
-};
-
-export type ProjectSection =
-  | ProjectBlockName
-  | ProjectImageSection
-  | ProjectGallerySection;
+export type ProjectSection = ProjectBlockName | ProjectImageSection;
 
 export const DEFAULT_BLOCKS: ProjectBlockName[] = [
   "title",

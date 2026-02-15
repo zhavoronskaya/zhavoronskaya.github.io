@@ -22,6 +22,7 @@ const audioParticlesBubble: IProject = {
     { src: `${TechnologyLinks.TSL}`, name: "TSL" },
     { src: `${TechnologyLinks.WEBGPU}`, name: "WebGPU" },
   ],
+  challengesVariant: "cards",
   challenges: [
     {
       info: "Uniform-driven state machine",
@@ -54,6 +55,7 @@ const audioParticlesBubble: IProject = {
     description:
       "Designed and developed a WebGPU-powered audio visualization system featuring a GPU particle simulation and a deformable glow sphere. Built a uniform-driven state machine with procedural displacement logic, mapping real-time audio data to shader uniforms to create dynamic generative visuals.",
   },
+  developmentStepsVariant: "timeline",
   developmentSteps: [
     {
       name: "Concept & Visual Architecture",

@@ -30,11 +30,6 @@ export default function TransitionLink({
       });
     }
   };
-  // return (
-  //   <button className={className} onClick={handleClick}>
-  //     {children}
-  //   </button>
-  // );
 
   return (
     <a className={className} onClick={handleClick} href={href}>

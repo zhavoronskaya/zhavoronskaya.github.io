@@ -61,7 +61,6 @@ function getInitialCamera() {
 
 const getRandomSign = () => {
   return Math.random() > 0.5 ? 1 : -1;
-  // return (Math.round(Math.random()) * 2 - 1)
 };
 
 const camera = getInitialCamera();
@@ -81,8 +80,6 @@ const BirdsScene = () => {
         barStyles={{
           backgroundColor: "rgba(240, 140, 174, 0.75)",
         }}
-        // dataStyles={{ color: "rgba(11, 0, 20, 1)", fontFamily: "Satoshi" }}
-        // dataInterpolation={(p) => `Loading ${p.toFixed(2)}%`}
       />
 
       <BaseCanvas gl={{ antialias: true }} camera={camera} dpr={dpr}>
@@ -201,11 +198,6 @@ export const Birds = ({}: Props) => {
     cloneC.current.material.needsUpdate = true;
 
     scene.add(cloneA.current, cloneB.current, cloneC.current);
-
-    // document.addEventListener("wheel", handleNotesPosition);
-    // return () => {
-    //   document.removeEventListener("wheel", handleNotesPosition);
-    // };
   }, [actions, scene]);
 
   const animateNote = (note: Mesh, cloneMesh: Mesh) => {
@@ -341,8 +333,6 @@ export const Birds = ({}: Props) => {
               receiveShadow
               geometry={getGeometry(nodes.NoteB)}
               material={materials.Notes}
-              // position={[0.001, 2.863, 3.701]}
-              // position={[10, 10, 10]}
             />
             <mesh
               ref={noteC}

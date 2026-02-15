@@ -1,6 +1,4 @@
 import { cn } from "@/helpers/ClassName";
-import { Url } from "next/dist/shared/lib/router/router";
-import Link from "next/link";
 import { EyesIcon } from "../UI/icons";
 import TransitionLink from "../TransitionLink";
 
@@ -452,7 +450,6 @@ const Grid = ({
         className
       )}
       style={{ gridAutoRows: "64px" }}
-      // style={{ gridTemplateRows: `repeat(${rows}, 64px)` }}
     >
       <Title className={titleClassName} textEnd={textEnd}>
         {title}
@@ -487,9 +484,6 @@ const Cell = ({
             fillColor="#F08CAE"
             className="w-[20px] sm:w-[32px] lg:w-[32px]"
           />
-          {/* <span className="text-main-container-color text-center text-hintm sm:text-hintt lg:text-hint">
-            view
-          </span> */}
         </div>
 
         <div className="h-full w-full transition-transform duration-300 scale-100 group-hover:scale-110">
@@ -531,7 +525,6 @@ export const Video = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  // return <div className={cn("h-full w-full object-cover", className)}></div>;
   return (
     <video
       autoPlay

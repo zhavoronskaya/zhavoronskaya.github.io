@@ -8,6 +8,7 @@ OUT_DIR="public/video"
 PRESET="slow"
 
 # base:source (use highest res for rose/virtudes)
+# NOTE: For Mono use scripts/recompress-mono-high-quality.sh with ORIGINAL source (mono1.mov) — main script used 720→1080 upscale = blurry.
 SOURCES="abstr1:abstr1-compressed-720.mp4 abstr3:abstr3-compressed-720.mp4 fbo1:fbo1-compressed-720.mp4 fbo2:fbo2-compressed-720.mp4 fbo3:fbo3-compressed-720.mp4 fbo4:fbo4-compressed-720.mp4 fbo5:fbo5-compressed-720.mp4 fbo6:fbo6-compressed-720.mp4 fbo7:fbo7-compressed-720.mp4 forever:forever-compressed-720.mp4 grid:grid-compressed-720.mp4 liza:liza.mov mono1:mono1-compressed-720.mp4 object1:object1-compressed-720.mp4 object2:object2-compressed-720.mp4 object3:object3-compressed-720.mp4 object4:object4-compressed-720.mp4 object5:object5-compressed-720.mp4 particles1:particles1-compressed-720.mp4 particles2:particles2-compressed-720.mp4 particles3:particles3-compressed-720.mp4 ray1:ray1-compressed-720.mp4 ray2:ray2-compressed-720.mp4 ray3:ray3-compressed-720.mp4 rose:rose-compressed-1024.mp4 shell:shell-compressed-720.mp4 so:so-cropped.mov space:space-compressed-720.mp4 tr1:tr1-compressed-720.mp4 tr2:tr2-compressed-720.mp4 tr3:tr3-compressed-720.mp4 tr4:tr4-compressed-720.mp4 virtudes:virtudes.mp4"
 
 cd "$(dirname "$0")/.."

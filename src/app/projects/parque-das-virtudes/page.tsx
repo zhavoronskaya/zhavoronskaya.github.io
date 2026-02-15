@@ -1,51 +1,57 @@
-import Image from "next/image";
-
 import virtudes from "./data";
 import ProjectPageLayout from "@/modules/projects/components/ProjectPageLayout";
-import { ImageProjectAnimation } from "@/components/ImageProjectAnimation";
+import type { ProjectSection } from "@/modules/projects/components/ProjectPageLayout";
 
-type Props = {};
+const VirtudesProject = () => {
+  const images = virtudes.projectImages ?? [];
+  const projectName = "Parque das Virtudes";
 
-const VirtudesProject = ({}: Props) => {
-  return (
-    <>
-      <ProjectPageLayout project={virtudes}>
-        <div className="gallery mt-8 sm:mt-12 lg:mt-20 sm:grid sm:grid-cols-12 sm:gap-4">
-          <ImageProjectAnimation />
-          <div className=" mb-4 sm:mb-0 :sm:col-start-1 sm:col-span-12 h-[224px] lg:h-[640px] sm:h-[512px]">
-            <Image
-              width="3012"
-              height="1616"
-              alt=""
-              priority
-              className="image image-1 object-cover w-full h-full rounded-lg border-border-image-color"
-              src="/projects/virtudes/virtudes1.webp"
-            />
-          </div>
-          <div className="mb-4 sm:mb-0 sm:col-start-1 sm:col-span-7 h-[224px] lg:h-[528px] sm:h-[288px]">
-            <Image
-              width="3012"
-              height="1616"
-              alt=""
-              priority
-              className="image-2 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[-50px]"
-              src="/projects/virtudes/virtudes2.webp"
-            />
-          </div>
-          <div className=" sm:col-start-8 sm:col-span-5 h-[224px] lg:h-[528px] sm:h-[288px]">
-            <Image
-              width="1648"
-              height="2198"
-              alt=""
-              priority
-              className="image-3 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[50px]"
-              src="/projects/virtudes/virtudes3.webp"
-            />
-          </div>
-        </div>
-      </ProjectPageLayout>
-    </>
-  );
+  const sections: ProjectSection[] = [
+    "title",
+    "takeALook",
+    "about",
+    ...(images[0]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "scale" as const,
+            image: { src: images[0], alt: `${projectName} — view 1` },
+            priority: true,
+          },
+        ]
+      : []),
+
+    "technologies",
+    "role",
+    "challenges",
+    "visit",
+    ...(images[1]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "left" as const,
+            image: { src: images[1], alt: `${projectName} — view 2` },
+          },
+        ]
+      : []),
+    ...(images[2]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "right" as const,
+            image: { src: images[2], alt: `${projectName} — view 3` },
+          },
+        ]
+      : []),
+
+    "developmentSteps",
+    "visit",
+  ];
+
+  return <ProjectPageLayout project={virtudes} sections={sections} />;
 };
 
 export default VirtudesProject;

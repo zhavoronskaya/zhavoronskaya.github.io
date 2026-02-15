@@ -1,62 +1,54 @@
-import Image from "next/image";
-
 import lizaLubi from "./data";
 import ProjectPageLayout from "@/modules/projects/components/ProjectPageLayout";
-import { ImageProjectAnimation } from "@/components/ImageProjectAnimation";
+import type { ProjectSection } from "@/modules/projects/components/ProjectPageLayout";
 
-const IMG_WIDTH = 2938;
-const IMG_HEIGHT = 1436;
-
-type Props = {};
-
-const LizaProject = ({}: Props) => {
+const LizaProject = () => {
   const images = lizaLubi.projectImages ?? [];
+  const projectName = "Liza Lubi";
 
-  return (
-    <>
-      <ProjectPageLayout project={lizaLubi}>
-        <div className="gallery mt-8 sm:mt-12 lg:mt-20 sm:grid sm:grid-cols-12 sm:gap-4">
-          <ImageProjectAnimation />
-          {images[0] && (
-            <div className=" mb-4 sm:mb-0 :sm:col-start-1 sm:col-span-12 h-[224px] lg:h-[640px] sm:h-[512px]">
-              <Image
-                width={IMG_WIDTH}
-                height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 1"
-                priority
-                className="image image-1 object-cover w-full h-full rounded-lg border-border-image-color"
-                src={images[0]}
-              />
-            </div>
-          )}
-          {images[1] && (
-            <div className="mb-4 sm:mb-0 sm:col-start-1 sm:col-span-7 h-[224px] lg:h-[528px] sm:h-[288px]">
-              <Image
-                width={IMG_WIDTH}
-                height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 2"
-                priority
-                className="image-2 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[-50px]"
-                src={images[1]}
-              />
-            </div>
-          )}
-          {images[2] && (
-            <div className=" sm:col-start-8 sm:col-span-5 h-[224px] lg:h-[528px] sm:h-[288px]">
-              <Image
-                width={IMG_WIDTH}
-                height={IMG_HEIGHT}
-                alt="Liza Lubi — screenshot 3"
-                priority
-                className="image-3 object-cover w-full h-full rounded-lg border-border-image-color translate-x-[50px]"
-                src={images[2]}
-              />
-            </div>
-          )}
-        </div>
-      </ProjectPageLayout>
-    </>
-  );
+  const sections: ProjectSection[] = [
+    "title",
+    "takeALook",
+    "about",
+    ...(images[0]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "scale" as const,
+            image: { src: images[0], alt: `${projectName} — screenshot 1` },
+            priority: true,
+          },
+        ]
+      : []),
+    ...(images[1]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "left" as const,
+            image: { src: images[1], alt: `${projectName} — screenshot 2` },
+          },
+        ]
+      : []),
+    ...(images[2]
+      ? [
+          {
+            type: "image" as const,
+            layout: "one" as const,
+            animation: "right" as const,
+            image: { src: images[2], alt: `${projectName} — screenshot 3` },
+          },
+        ]
+      : []),
+    "technologies",
+    "role",
+    "challenges",
+    "developmentSteps",
+    "visit",
+  ];
+
+  return <ProjectPageLayout project={lizaLubi} sections={sections} />;
 };
 
 export default LizaProject;

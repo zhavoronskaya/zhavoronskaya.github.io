@@ -59,7 +59,6 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
     new TWEEN.Tween(data)
       .to(to, 2000)
       .easing(TWEEN.Easing.Cubic.InOut)
-      // .easing(TWEEN.Easing.Exponential.InOut)
       .onUpdate(() => {
         mesh.position.z = data.z;
         uniforms.uProgress.value = data.progress;
@@ -87,9 +86,6 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
         originalMesh.geometry.clone(),
         originaMaterial.clone()
       );
-      // mesh.material.uniforms = initUniforms(
-      //   originaMaterial.uniforms.uImage.value
-      // );
 
       meshFadeOut(active.current);
       active.current = mesh;
@@ -102,9 +98,7 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
         .to(to, 1500)
         .easing(TWEEN.Easing.Exponential.InOut)
         .onUpdate(() => {})
-        .onComplete(() => {
-          // scene.remove(mesh);
-        })
+        .onComplete(() => {})
         .start();
     },
     [meshFadeOut]

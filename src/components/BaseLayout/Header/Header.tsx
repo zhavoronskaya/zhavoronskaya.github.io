@@ -17,11 +17,6 @@ const Header = ({ bgRight }: Props) => {
 
   const menuOpen = () => {
     setMenuOpen(true);
-
-    // // document.body.style.backgroundColor = "#F7DAE2";
-    // document.body.style.overflow = "hidden";
-    // const header = document.querySelector("header");
-    // if (header) header.style.zIndex = "201";
   };
 
   const menuClose = () => {
@@ -38,7 +33,6 @@ const Header = ({ bgRight }: Props) => {
       {
         duration: 0.5,
         ease: "power1.inOut",
-        // y: "-100%",
         opacity: 0,
         onComplete: () => {
           setMenuOpen(false);
@@ -46,11 +40,6 @@ const Header = ({ bgRight }: Props) => {
       },
       ">"
     );
-    //
-    // document.body.style.backgroundColor = "rgba(248, 244, 244, 1)";
-    // document.body.style.overflow = "auto";
-    // const header = document.querySelector("header");
-    // if (header) header.style.zIndex = "50";
   };
 
   return (
@@ -124,12 +113,10 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // setIsActive(true);
     const tl = gsap.timeline();
     tl.to(".menu", {
       duration: 0.5,
       ease: "power1.inOut",
-      // y: 0,
       opacity: 1,
     }).to(
       ".link",
@@ -146,7 +133,6 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
   }, []);
 
   let className = `menu fixed w-full h-full left-0 top-0 px-4 sm:px-6 py-16 opacity-0 bg-background-color z-[220]`;
-  //let className = `menu fixed w-full h-full left-0 top-0 px-4 sm:px-6 py-16 opacity-1 translate-y-[-100%] bg-background-color`;
 
   return createPortal(
     <div onClick={onClose} className={className}>
@@ -158,7 +144,6 @@ const Menu = ({ onClose }: { onClose: () => void }) => {
       </div>
       <div className="relative h-full w-full">
         <div
-          // className={styles.menublock + " absolute h-full w-full"}
           className={" absolute h-full w-full"}
           onClick={(e) => e.stopPropagation()}
         >

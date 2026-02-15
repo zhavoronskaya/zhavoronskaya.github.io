@@ -24,6 +24,7 @@ const lizaLubi: IProject = {
     { src: `${TechnologyLinks.THREEJS}`, name: "Three.js (TSL)" },
     { src: `${TechnologyLinks.CANVAS}`, name: "Canvas 2D" },
   ],
+  challengesVariant: "cards",
   challenges: [
     {
       info: "High-performance hero scene with WebGPU",
@@ -56,6 +57,7 @@ const lizaLubi: IProject = {
     description:
       "Led the full development cycle — from concept and UI/UX design to real-time graphics and interactive audio implementation. Focused on merging sound, motion, and minimalism into a cohesive digital music experience.",
   },
+  developmentStepsVariant: "timeline",
   developmentSteps: [
     {
       name: "Concept & UI/UX Design",

@@ -10,14 +10,12 @@ const useScrollLock = (selector: string, initialOverflow = "") => {
 
   const enable = () => {
     if (!elem.current) return;
-    // console.log("LOCK");
     isLocked.current = true;
     elem.current.style.overflow = "hidden";
   };
 
   const disable = () => {
     if (!elem.current) return;
-    // console.log("UNLOCK");
     isLocked.current = false;
     elem.current.style.overflow = initialOverflow;
   };

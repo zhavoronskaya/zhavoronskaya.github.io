@@ -1,8 +1,6 @@
-import { useEffect, useRef } from "react";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
 import * as THREE from "three";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,9 +12,6 @@ type Props = {
 
 export default function ParticlesAnimation({ particles }: Props) {
   const tl = gsap.timeline();
-  useFrame((state, delta) => {
-    // console.log(camera.position);
-  });
 
   useGSAP(
     () => {

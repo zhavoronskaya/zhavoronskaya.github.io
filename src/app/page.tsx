@@ -129,10 +129,7 @@ export default function Home() {
 
       <div className="relative px-6 sm:px-8 select-none ">
         <div className="grid grid-cols-3 sm:grid-cols-12 gap-4 mt-16 sm:mt-32 relative">
-          <div
-            className="section-1 col-start-1 col-span-3 sm:col-start-1 sm:col-span-11 lg:col-start-1 lg:col-span-12 mb-64 sm:mb-72"
-            // style={{ marginBottom: "500px" }}
-          >
+          <div className="section-1 col-start-1 col-span-3 sm:col-start-1 sm:col-span-11 lg:col-start-1 lg:col-span-12 mb-64 sm:mb-72">
             <h1 className="title uppercase text-hxlm sm:text-hxlt lg:text-[176px]/[162px] xl:text-hxl font-bold ">
               <JumpingText y={12} className="title">
                 Digital Art
@@ -153,10 +150,6 @@ export default function Home() {
           <div className="home-flower absolute right-0 top-16 sm:right-0 sm:top-10 lg:right-0 lg:top-4  xl:right-16 xl:top-36 z-20 pointer-events-none">
             <FlowerHome className="w-[148px] sm:w-[320px] lg:w-[480px] " />
           </div>
-
-          {/* <div className="col-start-1 col-span-1 sm:col-start-1 sm:col-span-7 lg:col-start-1 lg:col-span-8 ">
-            <BirdsScene />
-          </div> */}
 
           <ExploreWorldBlock />
 

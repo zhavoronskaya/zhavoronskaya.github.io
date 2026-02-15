@@ -9,6 +9,11 @@ const virtudes: IProject = {
   thumbnailVideoUrl1080: "/video/virtudes-compressed-1080.mp4",
   routing: "/projects/parque-das-virtudes",
   link: `${TechnologyLinks.VIRTUDES}`,
+  projectImages: [
+    "/projects/virtudes/virtudes1.webp",
+    "/projects/virtudes/virtudes2.webp",
+    "/projects/virtudes/virtudes3.webp",
+  ],
   description:
     " Web project dedicated to park in Porto, Portugal, representing a low poly 3D map of a park.",
   technology: [

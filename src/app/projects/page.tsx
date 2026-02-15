@@ -19,9 +19,6 @@ const ProjectsPage = ({}: Props) => {
           Projects
         </JumpingText>
 
-        {/* <h1 className="text-hxlm sm:text-hxlt lg:text-[176px]/[162px] xl:text-hxl font-bold uppercase">
-          Projects
-        </h1> */}
         <span className="block text-remarkm sm:text-remarkt lg:text-remark text-dissolve-color mt-4 sm:mt-8 lg:mt-12">
           Welcome to the showcase of creative web works
         </span>

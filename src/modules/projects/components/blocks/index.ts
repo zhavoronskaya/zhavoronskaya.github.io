@@ -1,0 +1,11 @@
+export { default as ProjectTitleBlock } from "./ProjectTitleBlock";
+export { default as ProjectTakeALookBlock } from "./ProjectTakeALookBlock";
+export { default as ProjectAboutBlock } from "./ProjectAboutBlock";
+export { default as ProjectTechnologiesBlock } from "./ProjectTechnologiesBlock";
+export { default as ProjectRoleBlock } from "./ProjectRoleBlock";
+export { default as ProjectChallengesBlock } from "./ProjectChallengesBlock";
+export { default as ProjectLinkToSourceBlock } from "./ProjectLinkToSourceBlock";
+export { default as ProjectDevelopmentStepsBlock } from "./ProjectDevelopmentStepsBlock";
+export { default as ProjectVisitBlock } from "./ProjectVisitBlock";
+export { default as ProjectAwardsBlock } from "./ProjectAwardsBlock";
+export type { ProjectBlocksConfig, ProjectBlockName } from "./types";

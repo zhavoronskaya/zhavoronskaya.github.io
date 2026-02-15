@@ -1,10 +1,6 @@
-export type ProjectImageBlockLayout =
-  | "one"
-  | "two"
-  | "twoLeftBig"
-  | "twoRightBig"
-  | "oneLeft"
-  | "oneRight";
+export type ProjectImageBlockLayout = "one" | "oneLeft" | "oneRight";
+
+export type ProjectImageBlockAnimation = "left" | "right" | "scale";
 
 export type ProjectImageBlockItem = {
   src: string;
@@ -13,9 +9,15 @@ export type ProjectImageBlockItem = {
   height?: number;
 };
 
+export type ProjectImageBlockHeightVariant = "default" | "compact";
+
 export type ProjectImageBlockProps = {
   layout: ProjectImageBlockLayout;
-  images: ProjectImageBlockItem[];
+  animation?: ProjectImageBlockAnimation;
+  image: ProjectImageBlockItem;
   priority?: boolean;
   className?: string;
+  scaleTo?: number;
+  /** Smaller height (compact) or default */
+  heightVariant?: ProjectImageBlockHeightVariant;
 };

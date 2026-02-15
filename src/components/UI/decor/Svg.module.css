@@ -6,6 +6,22 @@
   animation: dash 3s ease-in alternate infinite;
 }
 
+.arrowRoadDraw {
+  stroke-dasharray: 4400;
+  stroke-dashoffset: 4400;
+}
+.arrowRoadDraw:global(.active) {
+  animation: arrow-road-dash 1.5s ease-in-out infinite alternate;
+}
+@keyframes arrow-road-dash {
+  from {
+    stroke-dashoffset: 4400;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes dash {
   from {
     stroke-dashoffset: 4400;

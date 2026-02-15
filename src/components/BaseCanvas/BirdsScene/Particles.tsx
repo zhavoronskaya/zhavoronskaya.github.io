@@ -28,25 +28,18 @@ function initDisplacement(sizeRatio: number) {
   canvas.style.top = "0";
   canvas.style.left = "0";
   canvas.style.zIndex = "10";
-  // document.body.append(canvas);
 
-  // 2D canvas
-
-  // Context
   const context = canvas.getContext("2d");
   if (!context) return null;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Glow image
   const glowImage = new Image();
   glowImage.src = "/image/glow.png";
 
-  // Coordinates
   const screenCursor = new THREE.Vector2(9999, 9999);
   const canvasCursor = new THREE.Vector2(9999, 9999);
   const canvasCursorPrevious = new THREE.Vector2(9999, 9999);
 
-  // Texture
   const texture = new THREE.CanvasTexture(canvas);
 
   return {
@@ -105,10 +98,6 @@ function Particles() {
       displacement.canvasCursor.y = (1 - uv.y) * displacement.canvas.height;
     }
 
-    /**
-     * Displacement
-     */
-    // Fade out
     displacement.context.globalCompositeOperation = "source-over";
     displacement.context.globalAlpha = 0.02;
     displacement.context.fillRect(
@@ -118,14 +107,12 @@ function Particles() {
       displacement.canvas.height
     );
 
-    // Speed alpha
     const cursorDistance = displacement.canvasCursorPrevious.distanceTo(
       displacement.canvasCursor
     );
     displacement.canvasCursorPrevious.copy(displacement.canvasCursor);
     const alpha = Math.min(cursorDistance * 0.05, 1);
 
-    // Draw glow
     const glowSize = displacement.canvas.width * 0.15;
     displacement.context.globalCompositeOperation = "lighten";
     displacement.context.globalAlpha = alpha;
@@ -137,7 +124,6 @@ function Particles() {
       glowSize
     );
 
-    // Texture
     displacement.texture.needsUpdate = true;
 
     if (!shaderRef.current) return;

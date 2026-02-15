@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation";
-import ProjectHeader from "@/modules/projects/components/ProjectHeader";
-import { ProjectLayoutSvgAnimation } from "@/components/SvgAnimation";
-import FadingText from "@/components/FadingText";
+import { ClientProjectPageLayout } from "@/modules/projects/components/ClientProjectPageLayout";
 import {
   CLIENT_VIDEO_GRID_ITEMS,
   type ClientVideoGridItem,
@@ -25,21 +23,6 @@ export default async function ClientProjectPage({ params }: Props) {
   if (!project) notFound();
 
   return (
-    <>
-      <ProjectLayoutSvgAnimation />
-      <div className="px-6 sm:px-8 ">
-        <ProjectHeader />
-        <div className="mt-16 sm:mt-36 sm:grid sm:grid-cols-12 relative">
-          <div className="sm:col-start-1 sm:col-span-11">
-            <h1 className="text-hxlm sm:text-hxlt lg:text-hxl font-bold">
-              <FadingText className="subtitle">{project.name}</FadingText>
-            </h1>
-            <p className="mt-4 sm:mt-8 lg:mt-12 text-bodysm sm:text-bodyst lg:text-bodys text-dissolve-color">
-              more coming soon
-            </p>
-          </div>
-        </div>
-      </div>
-    </>
+    <ClientProjectPageLayout project={project} sections={project.sections} />
   );
 }

@@ -11,17 +11,6 @@ const cityscape: IProject = {
   routing: "/projects/cityscape-showcase",
   link: `${TechnologyLinks.MONO}`,
   description: " This page is currently under development",
-  // technology: [
-  //   { src: `${TechnologyLinks.BLENDER}`, name: "3Ds Max" },
-  //   { src: `${TechnologyLinks.THREEJS}`, name: "Three.js" },
-  //   { src: `${TechnologyLinks.NEXT}`, name: "Next.js" },
-  // ],
-  // developmentSteps: [
-  //   {
-  //     name: "",
-  //     items: [],
-  //   },
-  // ],
 };
 
 export default cityscape;

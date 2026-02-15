@@ -8,7 +8,6 @@ type Props = {
   project: IProject;
   compact?: boolean;
   fullWidthClickable?: boolean;
-  /** Optional class for the thumbnail container (e.g. h-[60vh] to fix height) */
   containerClassName?: string;
 };
 
@@ -39,7 +38,6 @@ const ProjectThumbnail = ({
       aria-hidden
     >
       <div className="flex flex-col items-end  text-right gap-4 sm:gap-6 p-6 sm:p-8 lg:p-10">
-        {/* translateZ(0) forces GPU layer so mix-blend-difference works in Safari/iOS */}
         <span className="text-remarkm sm:text-remarkt lg:text-remark text-white/90 drop-shadow-md mix-blend-difference [transform:translateZ(0)]">
           {project.thumbnailDIscription}
         </span>

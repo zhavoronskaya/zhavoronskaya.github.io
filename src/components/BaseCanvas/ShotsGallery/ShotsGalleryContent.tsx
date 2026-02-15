@@ -82,7 +82,6 @@ const getGalleryLayout = (touchScreen: boolean) => {
 const GALLERY_POSITION = new THREE.Vector3(0, -15, 6);
 const GALLERY_DAMP_START = 0.2;
 
-// Active index: 0 at start, then 1, 2, ... in order based on scroll
 const getActiveIndex = (galleryOffset: number) => {
   const count = GALLERY_IMAGES.length;
   return Math.min(count - 1, Math.floor(galleryOffset * count));

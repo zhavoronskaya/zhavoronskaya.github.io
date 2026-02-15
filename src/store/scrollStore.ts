@@ -1,9 +1,9 @@
 export type SectionProgress = {
-  section1: number; // .section-2 or .section-3
-  section2: number; // .section-4
-  section3: number; // .section-5
-  section4: number; // .section-6 - Let's Collaborate
-  galleryOffset: number; // 0-1 horizontal scroll within gallery
+  section1: number;
+  section2: number;
+  section3: number;
+  section4: number;
+  galleryOffset: number;
 };
 
 let current: SectionProgress = {
