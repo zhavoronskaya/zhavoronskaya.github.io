@@ -46,7 +46,12 @@ const ProjectRoleBlock = ({ role }: Props) => {
             project role
           </span>
           <p className="uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm font-medium">
-            {role.name}
+            {role.name.split(/\s*\/\s*/).map((part, i) => (
+              <React.Fragment key={i}>
+                {i > 0 && <br />}
+                {i === 0 ? `${part.trim()} /` : part.trim()}
+              </React.Fragment>
+            ))}
           </p>
           <p className="mt-4 lg:mt-8 text-bodysm sm:text-bodyst lg:text-bodys ">
             {role.description}

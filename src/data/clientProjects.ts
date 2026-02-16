@@ -26,7 +26,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       "Interactive Visa experience with a custom hero-image shader, real-time visuals, and responsive UI, optimized for smooth performance and precise motion.",
     image: "/projects/client/visa.webp",
     role: {
-      name: "Creative Frontend Developer / Shader Developer",
+      name: "Creative Frontend Developer / Shader Development",
       description: "Key contributions include:",
       whatIDid: [
         "Developed a custom shader applied to the hero image, reacting to mouse movement and running in a Web Worker for performance optimization",
@@ -36,11 +36,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://visacenter.chipsa.design/",
-    tags: [
-      { label: "CSS Design Awards" },
-      { label: "Awwwards / Honorable Mention" },
-      { label: "shaders" },
-    ],
+    tags: [{ label: "css design awards" }, { label: "awwwards / hm" }],
     awards: [
       {
         label: "Awwwards / Honorable Mention",
@@ -61,7 +57,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
     image: "/projects/client/promeat.webp",
 
     role: {
-      name: "Creative Frontend Developer / 3D Developer",
+      name: "Creative Frontend Developer / 3D Development",
       description: "Key contributions include:",
       whatIDid: [
         "Optimized 3D assets for performance and faster load times",
@@ -72,10 +68,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://promeat.chipsa.design/",
-    tags: [
-      { label: "CSS Design Awards" },
-      { label: "Awwwards / Honorable Mention" },
-    ],
+    tags: [{ label: "css design awards" }, { label: "awwwards / hm" }],
     awards: [
       {
         label: "CSS Design Awards",
@@ -122,7 +115,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       "visit",
     ],
     role: {
-      name: "Creative Frontend Developer/ 3D Developer",
+      name: "Creative Frontend Developer / 3D Development",
       description: "Key contributions include:",
       whatIDid: [
         "Developed interactive 3D scenes and real-time, shader-based visuals",
@@ -134,7 +127,7 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://chipsa.design/",
-    tags: [{ label: "CSS Design Awards" }, { label: "Awwwards" }],
+    tags: [{ label: "css design awards" }, { label: "awwwards / sod" }],
     awards: [
       {
         label: "CSS Design Awards",
@@ -154,25 +147,90 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
     slug: "chillbase",
     name: "Chillbase",
     routing: "/projects/client/chillbase",
-    // image: "/projects/client/chillbase.webp",
-    tags: [{ label: "CSS Design Awards" }],
+    description:
+      "Content-driven website for Chillbase built with a flexible CMS architecture, interactive Mapbox integration, and rich CSS-based motion design.",
+    image: "/projects/client/chillbase.webp",
+    role: {
+      name: "Creative Frontend Developer",
+      description: "Key contributions include:",
+      whatIDid: [
+        "Developed a custom, CMS-driven details page enabling flexible content management and dynamic updates",
+        "Implemented UI/UX development, including layout, responsive structure, and page composition across the entire website",
+        "Built and maintained complex CSS animations and motion-driven interactions throughout the project",
+        "Integrated Mapbox to deliver interactive maps with custom features",
+      ],
+    },
+    link: "https://chillbase.net/",
+    tags: [{ label: "css design awards" }],
+    awards: [
+      {
+        label: "CSS Design Awards",
+        href: "https://www.cssdesignawards.com/sites/chillbase/48418/",
+      },
+    ],
   },
   {
     slug: "mono",
-    name: "Mono",
+    name: "Mono Kami",
     routing: "/projects/client/mono",
-    tags: [{ label: "Three.js" }],
+    description:
+      "Immersive 3D web app built around a large-scale model and extensive panoramic scenes, with shader-driven occlusion, reflections, and dual camera systems. Developed solo with focus on rendering stability.",
+    role: {
+      name: "Creative Frontend Developer/ 3D Development",
+      description: "Key contributions include:",
+      whatIDid: [
+        "Led full frontend and 3D development as the sole developer",
+        "Architected and managed a large-scale 3D environment with ~50 panoramic scenes",
+        "Implemented animated building occlusion with shader-based intersection highlighting",
+        "Extended and optimized reflective material shaders for real-time rendering efficiency",
+        "Developed adaptive glow shaders for interactive UI elements",
+        "Engineered a camera animation system:",
+        "Full app version: carousel-style orbital camera animation around the central object",
+        "Alternate app version: animated camera fly-in to panoramic points with automatic rotation to real panorama orientation",
+        "Optimized rendering pipeline for stable cross-device performance",
+      ],
+    },
+    link: "https://www.behance.net/gallery/223972701/KAMI-web-app",
+    tags: [{ label: "behance" }],
+    // tags: [{ label: "Three.js" }],
   },
   {
     slug: "vki",
     name: "VKI",
     routing: "/projects/client/vki",
-    tags: [{ label: "Three.js" }],
+    description:
+      "3D web experience with optimized assets, a hero section driven by a mouse-reactive shader & scroll-driven slider.",
+    role: {
+      name: "Creative Frontend Developer / 3D Development",
+      description: "Key contributions include:",
+      whatIDid: [
+        "Optimized 3D models and textures using custom scripting for compression and performance efficiency",
+        "Built a hero section featuring a 3D model and a custom shader reacting to mouse movement",
+        "Implemented a scroll-driven slider and interactive transitions",
+        "Integrated UI/UX development with responsive layout implementation",
+        "Optimized performance for real-time 3D rendering and smooth interactions",
+      ],
+    },
+    // link: "https://vk-ing.ru/",
+    // tags: [{ label: "Three.js" }],
   },
   {
     slug: "vileda",
     name: "Vileda",
     routing: "/projects/client/vileda",
-    tags: [{ label: "Image Sequence" }],
+    description:
+      "Corporate website for Vileda featuring a scroll-driven hero powered by image sequences, a custom animation pipeline, integrated search functionality, and a fully responsive layout system.",
+    role: {
+      name: "Creative Frontend Developer",
+      description: "Key contributions include:",
+      whatIDid: [
+        "Scroll-driven hero section with image sequences and smooth transitions",
+        "Animation and motion pipeline development",
+        "Search functionality and results UI implementation",
+        "UI/UX development and responsive layout implementation",
+      ],
+    },
+    // link: "https://vileda-prof.ru/",
+    // tags: [{ label: "Image Sequence" }],
   },
 ];

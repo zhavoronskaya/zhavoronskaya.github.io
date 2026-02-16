@@ -74,6 +74,10 @@ const ClientProjectPageLayout = ({
         <ProjectHeader />
 
         {sections.map((section, idx) => {
+          const isLastSection = idx === sections.length - 1;
+          const sectionBottomMargin =
+            isLastSection && !project.link ? "mb-20 sm:mb-32" : "";
+
           if (section === "videoHero") {
             return (
               <div
@@ -107,14 +111,15 @@ const ClientProjectPageLayout = ({
             if (!project.description) return null;
             const aboutSection = isAboutSection(section) ? section : undefined;
             return (
-              <ProjectAboutBlock
-                key={idx}
-                description={project.description}
-                contentClassName={
-                  aboutSection?.contentClassName ?? "sm:col-span-9"
-                }
-                className={aboutSection?.className ?? "sm:mt-12"}
-              />
+              <div key={idx} className={sectionBottomMargin}>
+                <ProjectAboutBlock
+                  description={project.description}
+                  contentClassName={
+                    aboutSection?.contentClassName ?? "sm:col-span-9"
+                  }
+                  className={aboutSection?.className ?? "sm:mt-12"}
+                />
+              </div>
             );
           }
 
@@ -134,7 +139,10 @@ const ClientProjectPageLayout = ({
               : null;
             if (!imgSection) return null;
             return (
-              <div key={idx} className={PROJECT_IMAGE_SECTION_SPACING}>
+              <div
+                key={idx}
+                className={`${PROJECT_IMAGE_SECTION_SPACING} ${sectionBottomMargin}`.trim()}
+              >
                 <ProjectImageBlock
                   layout={imgSection.layout}
                   animation={imgSection.animation}
@@ -148,11 +156,19 @@ const ClientProjectPageLayout = ({
           }
 
           if (section === "role" && project.role) {
-            return <ProjectRoleBlock key={idx} role={project.role} />;
+            return (
+              <div key={idx} className={sectionBottomMargin}>
+                <ProjectRoleBlock role={project.role} />
+              </div>
+            );
           }
 
           if (section === "awards" && project.awards?.length) {
-            return <ProjectAwardsBlock key={idx} awards={project.awards} />;
+            return (
+              <div key={idx} className={sectionBottomMargin}>
+                <ProjectAwardsBlock awards={project.awards} />
+              </div>
+            );
           }
 
           if (section === "visit" && project.link) {

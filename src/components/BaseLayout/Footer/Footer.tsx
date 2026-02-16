@@ -10,7 +10,6 @@ type Props = {
   bgRight?: string;
 };
 
-/** На contact — десктоп только с xl. На остальных — десктоп с md (планшет как десктоп). */
 const DESKTOP_BP = {
   contact: "xl",
   default: "md",
