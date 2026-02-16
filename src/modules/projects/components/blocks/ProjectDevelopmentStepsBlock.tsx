@@ -33,10 +33,10 @@ const ListVariant = ({
       <SectionHeader />
     </div>
 
-    <div className="sm:col-start-1 sm:col-span-11 relative grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-12 sm:gap-y-16 lg:gap-y-24 items-start">
+    <div className="sm:col-start-1 sm:col-span-11 relative grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-12 sm:gap-y-16 lg:gap-y-24 items-baseline">
       {developmentSteps.map((step, idx) => (
         <React.Fragment key={idx}>
-          <div className="relative z-10 flex flex-col items-center pt-0.5 shrink-0">
+          <div className="relative z-10 flex shrink-0 items-baseline">
             <span
               className="font-mono text-remarkm sm:text-remarkt lg:text-remark text-dissolve-color tabular-nums whitespace-nowrap"
               aria-hidden

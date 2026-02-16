@@ -23,6 +23,7 @@ const soCoffee: IProject = {
     { src: `${TechnologyLinks.BLENDER}`, name: "Blender" },
     { src: `${TechnologyLinks.RAPIER}`, name: "Rapier Physics" },
   ],
+  challengesVariant: "cards",
   challenges: [
     {
       info: "Adapting existing branding to a digital environment",
@@ -55,6 +56,7 @@ const soCoffee: IProject = {
     description:
       "Designed and developed the digital experience based on existing brand guidelines. Created realistic 3D product models, built a custom smoke shader, implemented Rapier-based physics for falling coffee beans, integrated post-processing and dark mode, and developed a performance-optimized frontend architecture enriched with refined CSS animations.",
   },
+  developmentStepsVariant: "timeline",
   developmentSteps: [
     {
       name: "Brand Adaptation & Web Design",

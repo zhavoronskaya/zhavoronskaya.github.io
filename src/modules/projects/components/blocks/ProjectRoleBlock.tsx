@@ -56,10 +56,10 @@ const ProjectRoleBlock = ({ role }: Props) => {
               <span className="block text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark mb-6 sm:mb-8">
                 what I did
               </span>
-              <div className="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-4 sm:gap-y-6 lg:gap-y-8 items-start">
+              <div className="grid grid-cols-[56px_1fr] sm:grid-cols-[72px_1fr] gap-x-4 sm:gap-x-6 lg:gap-x-8 gap-y-4 sm:gap-y-6 lg:gap-y-8 items-baseline">
                 {role.whatIDid.map((item, idx) => (
                   <React.Fragment key={idx}>
-                    <div className="relative z-10 flex flex-col items-center pt-0.5 shrink-0">
+                    <div className="relative z-10 flex shrink-0 items-baseline">
                       <span
                         className="font-mono text-remarkm sm:text-remarkt lg:text-remark text-dissolve-color tabular-nums whitespace-nowrap"
                         aria-hidden

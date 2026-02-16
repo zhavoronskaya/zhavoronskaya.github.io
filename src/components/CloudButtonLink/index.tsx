@@ -29,7 +29,8 @@ function cloudButtonContent(
       )}
       <span
         className={cn(
-          "absolute inset-0 z-10 flex items-center justify-center text-accent-color uppercase font-medium group-hover:text-accent-color-active",
+          "absolute inset-0 z-10 flex items-center justify-center uppercase font-medium transition-colors duration-300",
+          "!text-accent-color group-hover:!text-accent-color-active",
           isLarge
             ? "text-hsm sm:text-hst lg:text-hs"
             : "text-pillsmm sm:text-pillsmt lg:text-pillsm"

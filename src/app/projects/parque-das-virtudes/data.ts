@@ -21,6 +21,7 @@ const virtudes: IProject = {
     { src: `${TechnologyLinks.THREEJS}`, name: "Three.js" },
     { src: `${TechnologyLinks.NEXT}`, name: "Next.js" },
   ],
+  challengesVariant: "cards",
   challenges: [
     {
       info: "The number of polygons in a model has a significant impact",
@@ -65,6 +66,7 @@ const virtudes: IProject = {
     description:
       "I was responsible for designing, creating, and implementing both the visual and interactive elements of the project. This included conceptualizing the overall design, building 3D models, and developing the project to ensure an engaging user experience.",
   },
+  developmentStepsVariant: "timeline",
   developmentSteps: [
     {
       name: "3D Modeling in Blender",
