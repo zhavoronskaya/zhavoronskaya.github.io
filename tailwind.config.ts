@@ -86,6 +86,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      keyframes: {
+        "tape-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        "tape-scroll": "tape-scroll linear infinite",
+      },
       colors: {
         "background-color": "var(--background-color)",
         "primary-color": "var(--primary-color)",

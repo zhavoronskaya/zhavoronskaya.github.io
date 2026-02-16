@@ -11,6 +11,8 @@ export type ClientVideoGridItem = {
   routing: string;
   description?: string;
   image?: string;
+  thumbnailVideoUrl?: string;
+  thumbnailVideoUrl1080?: string;
   role?: Role;
   link?: string;
   awards?: { label: string; href?: string }[];

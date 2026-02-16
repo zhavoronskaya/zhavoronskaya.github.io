@@ -26,14 +26,18 @@ export type ProjectImageSectionAnimation = "left" | "right" | "scale";
 
 export type ProjectImageSectionHeightVariant = "default" | "compact";
 
-export type ProjectImageSection = {
-  type: "image";
+export type ProjectImageSectionContent = {
   layout: ProjectImageSectionLayout;
   animation?: ProjectImageSectionAnimation;
   image: ProjectImageSectionItem;
   priority?: boolean;
   scaleTo?: number;
   heightVariant?: ProjectImageSectionHeightVariant;
+  sizeByImageAspect?: boolean;
+};
+
+export type ProjectImageSection = ProjectImageSectionContent & {
+  type: "image";
 };
 
 export type ProjectSection = ProjectBlockName | ProjectImageSection;

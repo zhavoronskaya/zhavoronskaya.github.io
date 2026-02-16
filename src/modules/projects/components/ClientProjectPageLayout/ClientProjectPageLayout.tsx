@@ -150,6 +150,7 @@ const ClientProjectPageLayout = ({
                   priority={imgSection.priority ?? false}
                   scaleTo={imgSection.scaleTo}
                   heightVariant={imgSection.heightVariant}
+                  sizeByImageAspect
                 />
               </div>
             );

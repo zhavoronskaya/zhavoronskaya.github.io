@@ -18,6 +18,7 @@ const SoCoffeeProject = () => {
             animation: "left" as const,
             image: { src: images[0], alt: `${projectName} — screenshot 1` },
             priority: true,
+            sizeByImageAspect: true,
           },
         ]
       : []),
@@ -31,6 +32,7 @@ const SoCoffeeProject = () => {
             layout: "one" as const,
             animation: "scale" as const,
             image: { src: images[2], alt: `${projectName} — screenshot 3` },
+            sizeByImageAspect: true,
           },
         ]
       : []),
@@ -43,6 +45,7 @@ const SoCoffeeProject = () => {
             layout: "one" as const,
             animation: "scale" as const,
             image: { src: images[1], alt: `${projectName} — screenshot 2` },
+            sizeByImageAspect: true,
           },
         ]
       : []),

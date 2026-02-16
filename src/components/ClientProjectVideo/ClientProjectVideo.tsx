@@ -6,7 +6,7 @@ type Props = {
   className?: string;
 };
 
-const getVideoSources = (slug: string) => {
+export const getClientVideoSources = (slug: string) => {
   const is1440 = slug === "chipsa" || slug === "visa";
   const is1080Default = slug === "mono";
   return {
@@ -16,7 +16,7 @@ const getVideoSources = (slug: string) => {
 };
 
 export default function ClientProjectVideo({ slug, alt, className }: Props) {
-  const { high, default: defaultSrc } = getVideoSources(slug);
+  const { high, default: defaultSrc } = getClientVideoSources(slug);
   return (
     <video
       muted

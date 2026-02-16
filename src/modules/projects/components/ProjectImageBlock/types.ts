@@ -1,23 +1,16 @@
-export type ProjectImageBlockLayout = "one" | "oneLeft" | "oneRight";
+import type {
+  ProjectImageSectionContent,
+  ProjectImageSectionLayout,
+  ProjectImageSectionAnimation,
+  ProjectImageSectionItem,
+  ProjectImageSectionHeightVariant,
+} from "../blocks/types";
 
-export type ProjectImageBlockAnimation = "left" | "right" | "scale";
+export type ProjectImageBlockLayout = ProjectImageSectionLayout;
+export type ProjectImageBlockAnimation = ProjectImageSectionAnimation;
+export type ProjectImageBlockItem = ProjectImageSectionItem;
+export type ProjectImageBlockHeightVariant = ProjectImageSectionHeightVariant;
 
-export type ProjectImageBlockItem = {
-  src: string;
-  alt: string;
-  width?: number;
-  height?: number;
-};
-
-export type ProjectImageBlockHeightVariant = "default" | "compact";
-
-export type ProjectImageBlockProps = {
-  layout: ProjectImageBlockLayout;
-  animation?: ProjectImageBlockAnimation;
-  image: ProjectImageBlockItem;
-  priority?: boolean;
+export type ProjectImageBlockProps = ProjectImageSectionContent & {
   className?: string;
-  scaleTo?: number;
-  /** Smaller height (compact) or default */
-  heightVariant?: ProjectImageBlockHeightVariant;
 };

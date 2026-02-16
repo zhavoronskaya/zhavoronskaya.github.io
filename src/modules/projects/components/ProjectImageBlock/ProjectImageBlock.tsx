@@ -126,6 +126,7 @@ const HEIGHT_CLASSES = {
   default: "h-[224px] sm:h-[512px] lg:h-[640px]",
   compact: "h-[160px] sm:h-[320px] lg:h-[400px]",
 } as const;
+const HEIGHT_CLASSES_PRESERVE_ASPECT = "w-full";
 const gridBase = "grid grid-cols-1 sm:grid-cols-12 sm:gap-4 gap-4 sm:mb-0 mb-4";
 
 export function ProjectImageBlock({
@@ -136,7 +137,13 @@ export function ProjectImageBlock({
   className,
   scaleTo,
   heightVariant = "default",
+  sizeByImageAspect = false,
 }: ProjectImageBlockProps) {
+  const aspectRatio =
+    (image.width ?? DEFAULT_WIDTH) / (image.height ?? DEFAULT_HEIGHT);
+  const heightClasses = sizeByImageAspect
+    ? HEIGHT_CLASSES_PRESERVE_ASPECT
+    : HEIGHT_CLASSES[heightVariant];
   return (
     <BlockWithAnimation
       className={cn(gridBase, className)}
@@ -144,7 +151,18 @@ export function ProjectImageBlock({
       scaleTo={scaleTo}
     >
       <div
-        className={cn(LAYOUT_CLASSES[layout], HEIGHT_CLASSES[heightVariant])}
+        className={cn(
+          LAYOUT_CLASSES[layout],
+          heightClasses,
+          sizeByImageAspect && "project-image-block-size-by-image"
+        )}
+        style={
+          sizeByImageAspect
+            ? ({
+                "--project-image-aspect-ratio": aspectRatio,
+              } as React.CSSProperties)
+            : undefined
+        }
       >
         <ProjectImage item={image} priority={priority} animation={animation} />
       </div>

@@ -155,6 +155,7 @@ const ProjectPageLayout = ({ project, children, blocks, sections }: Props) => {
                       priority={section.priority ?? false}
                       scaleTo={section.scaleTo}
                       heightVariant={section.heightVariant}
+                      sizeByImageAspect={section.sizeByImageAspect}
                     />
                   </div>
                 );

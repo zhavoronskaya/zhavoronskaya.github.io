@@ -18,6 +18,7 @@ const VirtudesProject = () => {
             animation: "scale" as const,
             image: { src: images[0], alt: `${projectName} — view 1` },
             priority: true,
+            sizeByImageAspect: true,
           },
         ]
       : []),
@@ -33,6 +34,7 @@ const VirtudesProject = () => {
             layout: "one" as const,
             animation: "left" as const,
             image: { src: images[1], alt: `${projectName} — view 2` },
+            sizeByImageAspect: true,
           },
         ]
       : []),
@@ -43,6 +45,7 @@ const VirtudesProject = () => {
             layout: "one" as const,
             animation: "right" as const,
             image: { src: images[2], alt: `${projectName} — view 3` },
+            sizeByImageAspect: true,
           },
         ]
       : []),

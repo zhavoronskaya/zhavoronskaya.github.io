@@ -13,7 +13,7 @@ const AudioParticlesBubbleProject = () => {
     images[0] && {
       type: "image" as const,
       layout: "one" as const,
-      scaleTo: 1.05,
+      scaleTo: 1,
       image: { src: images[0], alt: `${projectName} — screenshot 1` },
       priority: true,
     },

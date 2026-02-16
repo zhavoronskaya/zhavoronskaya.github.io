@@ -3,6 +3,7 @@ import { FlowerProject } from "@/components/UI/decor";
 import { CloudButtonLink } from "@/components/CloudButtonLink";
 import { ProjectsSvgAnimation } from "@/components/SvgAnimation";
 import JumpingText from "@/components/JumpingText";
+import { InfiniteVideoTape } from "@/components/InfiniteVideoTape";
 
 type Props = {};
 
@@ -64,6 +65,10 @@ const ProjectsPage = ({}: Props) => {
           </a>
           & other technologies for interactive web product and digital art.
         </p>
+      </div>
+
+      <div className="mt-16 sm:mt-20 -mx-6 sm:-mx-8">
+        <InfiniteVideoTape duration={30} />
       </div>
 
       <div className="mt-16 sm:mt-24 mb-16 sm:mb-36 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
