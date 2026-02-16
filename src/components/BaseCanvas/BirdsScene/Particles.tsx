@@ -7,7 +7,7 @@ import * as THREE from "three";
 import pointsVertexShader from "./shaders/vertex";
 import pointsFragmentShader from "./shaders/fragment";
 import useWindowPointerFromCenter from "@/hooks/usePointerMove";
-import gsap from "gsap";
+import isMobile from "@/helpers/DeviceDefenition";
 
 function getResolutionVector() {
   if (typeof window === "undefined") return null;
@@ -67,6 +67,8 @@ function Particles() {
 
   const { size, viewport } = useThree();
   const sizeRatio = size.width / size.height;
+  const mobile = isMobile().phone || isMobile().tablet;
+  const segments = mobile ? 32 : 64;
 
   const init = () => initDisplacement(sizeRatio);
   const [displacement] = useState(init);
@@ -139,8 +141,8 @@ function Particles() {
         geometryArgs={[
           6.0 * viewport.width,
           (6.0 * viewport.height) / sizeRatio,
-          64,
-          64,
+          segments,
+          segments,
         ]}
       />
       <mesh ref={planeRef}>

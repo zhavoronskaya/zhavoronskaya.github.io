@@ -28,8 +28,8 @@ const COLLABORATE_DAMP_START = 0.2;
 
 const cameraTarget = new THREE.Vector3(0, 10, 0);
 
-const SMOOTH_TIME = 0.15;
-const COLLABORATE_SMOOTH_TIME = 0.35;
+const SMOOTH_TIME = 0.1;
+const COLLABORATE_SMOOTH_TIME = 0.22;
 
 function lerpSection(
   out: THREE.Vector3,

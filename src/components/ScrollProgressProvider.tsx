@@ -1,6 +1,5 @@
 "use client";
 
-import { useScroll } from "framer-motion";
 import { useEffect } from "react";
 import { scrollStore } from "@/store/scrollStore";
 
@@ -9,6 +8,7 @@ function getSectionProgress(selector: string): number {
   const el = document.querySelector(selector);
   if (!el) return 0;
   const rect = el.getBoundingClientRect();
+  if (rect.height <= 0) return 0;
   const progress = (window.innerHeight - rect.top) / rect.height;
   return Math.max(0, Math.min(1, progress));
 }
@@ -32,17 +32,16 @@ export default function ScrollProgressProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const { scrollY } = useScroll();
-
   useEffect(() => {
     updateScrollStore();
-    const unsubscribe = scrollY.on("change", updateScrollStore);
+
     window.addEventListener("scroll", updateScrollStore, { passive: true });
+    window.addEventListener("resize", updateScrollStore);
     return () => {
-      unsubscribe();
       window.removeEventListener("scroll", updateScrollStore);
+      window.removeEventListener("resize", updateScrollStore);
     };
-  }, [scrollY]);
+  }, []);
 
   return <>{children}</>;
 }

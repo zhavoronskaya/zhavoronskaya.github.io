@@ -13,9 +13,10 @@ import { useEffect, useRef } from "react";
 import { DecorHome, FlowerHome, HeartHome } from "@/components/UI/decor";
 import { TechnologyLinks } from "@/constants";
 import { scrollStore } from "@/store/scrollStore";
-import Link from "next/link";
 
-const GALLERY_SCROLL_SPEED = 0.2;
+const GALLERY_SCROLL_SPEED = 0.1;
+/** Max page scroll per wheel when at gallery boundary — avoids jumpy overshoot */
+const MAX_PAGE_SCROLL_PER_WHEEL = 120;
 
 function FadeInBlock({
   children,
@@ -94,11 +95,15 @@ export default function Home() {
       const scrollingDown = e.deltaY > 0;
       const scrollingUp = e.deltaY < 0;
       if (atEnd && scrollingDown) {
-        window.scrollBy({ top: e.deltaY, behavior: "auto" });
+        e.preventDefault();
+        const dy = Math.min(e.deltaY, MAX_PAGE_SCROLL_PER_WHEEL);
+        window.scrollBy({ top: dy, behavior: "auto" });
         return;
       }
       if (atStart && scrollingUp) {
-        window.scrollBy({ top: e.deltaY, behavior: "auto" });
+        e.preventDefault();
+        const dy = Math.max(e.deltaY, -MAX_PAGE_SCROLL_PER_WHEEL);
+        window.scrollBy({ top: dy, behavior: "auto" });
         return;
       }
       const canScrollGallery =
@@ -107,7 +112,8 @@ export default function Home() {
       e.preventDefault();
       e.stopPropagation();
       if (canScrollGallery) {
-        el.scrollLeft += e.deltaY * GALLERY_SCROLL_SPEED;
+        const speed = GALLERY_SCROLL_SPEED;
+        el.scrollLeft += e.deltaY * speed;
       }
     };
 
@@ -159,13 +165,19 @@ export default function Home() {
               I&#39;m Lena
             </p>
           </FadeInBlock>
-          <FadeInBlock className="section-3 mt-64 sm:mt-72 col-start-2 col-span-2 sm:col-start-5 sm:col-span-8 mb-16 sm:mb-32">
+          <FadeInBlock className="section-3 mt-64 sm:mt-72 col-start-2 col-span-2 sm:col-start-5 sm:col-span-8 mb-32 sm:mb-44 lg:mb-64">
             <p className="text-bodysm sm:text-bodyst lg:text-bodys">
               As a creative developer specializing in visual design and
               generative art, I merge creativity with code to create lovely
               digital art and design projects. My passion for the generative art
               drives each work.
             </p>
+            <TransitionLink
+              href="/projects"
+              className="block mt-6 sm:mt-8 text-accent-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm hover:text-accent-color-active font-medium"
+            >
+              All Projects
+            </TransitionLink>
           </FadeInBlock>
         </div>
 
@@ -180,7 +192,7 @@ export default function Home() {
               href={TechnologyLinks.THREEJS}
               className="block text-accent-color uppercase text-pillm sm:text-pillt lg:text-pill hover:text-accent-color-active font-medium"
             >
-              Three.js
+              Three.js / TSL
             </a>
             <a
               target="_blank"
@@ -193,6 +205,14 @@ export default function Home() {
             <a
               target="_blank"
               rel="noopener noreferrer"
+              href={TechnologyLinks.WEBGPU}
+              className="block text-accent-color uppercase text-pillm sm:text-pillt lg:text-pill hover:text-accent-color-active font-medium"
+            >
+              webgpu
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={TechnologyLinks.GLSL}
               className="block text-accent-color uppercase text-pillm sm:text-pillt lg:text-pill hover:text-accent-color-active font-medium"
             >
@@ -200,19 +220,20 @@ export default function Home() {
             </a>
           </FadeInBlock>
 
-          <div className="mt-20 sm:mt-36 lg:mt-44 col-start-1 col-span-3 sm:col-start-5 sm:col-span-7 lg:col-start-6 lg:col-span-7">
+          <div className="mt-32 sm:mt-44 lg:mt-64 col-start-1 col-span-3 sm:col-start-5 sm:col-span-7 lg:col-start-6 lg:col-span-7">
             <span className="block text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark">
               works
             </span>
             <TransitionLink
-              className="block text-accent-color uppercase text-pillm sm:text-pillt lg:text-pill hover:text-accent-color-active font-medium mix-blend-difference"
+              className="block text-accent-color uppercase text-pillm sm:text-pillt lg:text-pill hover:text-accent-color-active font-medium mb-[12vh]"
               href="/shots"
             >
               short gallery
             </TransitionLink>
           </div>
         </div>
-        <div className="section-5 mt-8 sm:mt-16 h-screen">
+
+        <div className="section-5 mt-[8vh] h-screen">
           <GalleryScrollTracker scrollRef={galleryScrollRef} />
         </div>
 

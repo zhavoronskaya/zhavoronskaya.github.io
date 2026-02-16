@@ -68,7 +68,7 @@ const ProjectsPage = ({}: Props) => {
       </div>
 
       <div className="mt-16 sm:mt-24 mb-16 sm:mb-24 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
-        <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
+        <div className="h-[120px] sm:h-[180px] lg:h-[260px] w-full">
           <CloudButtonLink
             href="/projects/pets"
             internal
@@ -78,7 +78,7 @@ const ProjectsPage = ({}: Props) => {
             pets
           </CloudButtonLink>
         </div>
-        <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
+        <div className="h-[120px] sm:h-[180px] lg:h-[260px] w-full">
           <CloudButtonLink
             href="/projects/client"
             internal

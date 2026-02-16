@@ -67,7 +67,7 @@ const camera = getInitialCamera();
 
 const BirdsScene = () => {
   const mobile = isMobile().phone || isMobile().tablet;
-  const dpr: [number, number] = mobile ? [1, 1.25] : [1, 1.5];
+  const dpr: [number, number] = mobile ? [1, 1] : [1, 1.5];
 
   return (
     <>
