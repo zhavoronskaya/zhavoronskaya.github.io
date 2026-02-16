@@ -114,6 +114,14 @@ const SkillsPage = ({}: Props) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
+              href={TechnologyLinks.GLSL}
+              className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
+            >
+              glsl
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={TechnologyLinks.WEBGL}
               className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
             >
@@ -122,10 +130,18 @@ const SkillsPage = ({}: Props) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={TechnologyLinks.GLSL}
+              href={TechnologyLinks.WEBGPU}
               className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
             >
-              glsl
+              webgpu
+            </a>
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={TechnologyLinks.THREEJS}
+              className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
+            >
+              three.js / TSL
             </a>
             <a
               target="_blank"
@@ -151,14 +167,7 @@ const SkillsPage = ({}: Props) => {
             >
               react/three-drei
             </a>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={TechnologyLinks.THREEJS}
-              className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
-            >
-              three.js
-            </a>
+
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -167,22 +176,20 @@ const SkillsPage = ({}: Props) => {
             >
               next.js
             </a>
-            <span className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint font-medium">
-              c++
+            <span className="block">
+              <span className="text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint font-medium">
+                c++
+              </span>
+              <span className="text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark font-normal normal-case">
+                {" "}
+                (working)
+              </span>
             </span>
           </div>
           <div className=" col-start-1 col-span-2 sm:col-start-7 sm:col-span-4 relative ">
             <span className="block text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark">
               software
             </span>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={TechnologyLinks.BLENDER}
-              className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
-            >
-              blender
-            </a>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -194,6 +201,15 @@ const SkillsPage = ({}: Props) => {
             <a
               target="_blank"
               rel="noopener noreferrer"
+              href={TechnologyLinks.BLENDER}
+              className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
+            >
+              blender
+            </a>
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
               href={TechnologyLinks.FIGMA}
               className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint hover:text-accent-color-active font-medium"
             >
@@ -202,8 +218,15 @@ const SkillsPage = ({}: Props) => {
             <span className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint font-medium">
               photoshop
             </span>
-            <span className="block text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint font-medium">
-              xcode
+
+            <span className="block">
+              <span className="text-accent-color uppercase text-hintm sm:text-hintt lg:text-hint font-medium">
+                xcode
+              </span>
+              <span className="text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark font-normal normal-case">
+                {" "}
+                (working)
+              </span>
             </span>
 
             <div className="skills-stars absolute left-[38%] top-[60%] sm:left-[12%] sm:top-[28%] lg:left-[24%] lg:top-[28%] pointer-events-none z-20">

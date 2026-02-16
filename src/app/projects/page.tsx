@@ -67,11 +67,7 @@ const ProjectsPage = ({}: Props) => {
         </p>
       </div>
 
-      <div className="mt-16 sm:mt-20 -mx-6 sm:-mx-8">
-        <InfiniteVideoTape duration={30} />
-      </div>
-
-      <div className="mt-16 sm:mt-24 mb-16 sm:mb-36 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
+      <div className="mt-16 sm:mt-24 mb-16 sm:mb-24 grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-16 lg:gap-24">
         <div className="h-[200px] sm:h-[260px] lg:h-[320px] w-full">
           <CloudButtonLink
             href="/projects/pets"
@@ -93,6 +89,9 @@ const ProjectsPage = ({}: Props) => {
             client
           </CloudButtonLink>
         </div>
+      </div>
+      <div className="mt-16 sm:mt-20 mb-8 sm:mb-12 -mx-6 sm:-mx-8">
+        <InfiniteVideoTape duration={30} />
       </div>
     </div>
   );
