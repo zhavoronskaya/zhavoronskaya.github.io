@@ -38,14 +38,14 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://visacenter.chipsa.design/",
-    tags: [{ label: "css design awards" }, { label: "awwwards / hm" }],
+    tags: [{ label: "cssda" }, { label: "awwwards / hm" }],
     awards: [
       {
         label: "Awwwards / Honorable Mention",
         href: "https://www.awwwards.com/sites/ac-visa-center",
       },
       {
-        label: "CSS Design Awards — Website Of The Day",
+        label: "CSS Design Awards / WOTD",
         href: "https://cssdesignawards.com/sites/visa-center/48531/",
       },
     ],
@@ -70,10 +70,10 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://promeat.chipsa.design/",
-    tags: [{ label: "css design awards" }, { label: "awwwards / hm" }],
+    tags: [{ label: "cssda" }, { label: "awwwards / hm" }],
     awards: [
       {
-        label: "CSS Design Awards",
+        label: "CSS Design Awards / WOTD",
         href: "https://www.cssdesignawards.com/sites/promeat/47856/",
       },
       {
@@ -129,10 +129,10 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://chipsa.design/",
-    tags: [{ label: "css design awards" }, { label: "awwwards / sod" }],
+    tags: [{ label: "cssda" }, { label: "awwwards" }],
     awards: [
       {
-        label: "CSS Design Awards",
+        label: "CSS Design Awards / WOTD",
         href: "https://www.cssdesignawards.com/sites/chipsa/47919/",
       },
       {
@@ -163,10 +163,10 @@ export const CLIENT_VIDEO_GRID_ITEMS: ClientVideoGridItem[] = [
       ],
     },
     link: "https://chillbase.net/",
-    tags: [{ label: "css design awards" }],
+    tags: [{ label: "cssda" }],
     awards: [
       {
-        label: "CSS Design Awards",
+        label: "CSS Design Awards / WOTD",
         href: "https://www.cssdesignawards.com/sites/chillbase/48418/",
       },
     ],
