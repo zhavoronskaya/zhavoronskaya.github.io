@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { animatePageIn } from "@/components/TransitionLink/Animation";
 
@@ -8,7 +8,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    animatePageIn(".js-view-transition-element");
+    animatePageIn();
   }, [pathname]);
 
   return (

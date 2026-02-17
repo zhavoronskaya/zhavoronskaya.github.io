@@ -52,6 +52,10 @@ a, button {
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
+.js-view-transition-element {
+  transition: opacity 0.7s ease-in-out;
+}
+
 
 @layer utilities {
   .text-balance {
