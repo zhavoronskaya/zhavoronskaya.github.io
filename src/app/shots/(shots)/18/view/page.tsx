@@ -1,12 +1,15 @@
 "use client";
 import ViewShotPageLayout from "@/modules/shots/components/ViewShotPageLayout";
 import Experience from "./Transparent3/Experience";
+import { useGLTF } from "@react-three/drei";
+
+useGLTF.preload("/shots/transparent/model/meduze.glb");
 
 export default function Shot() {
   return (
     <ViewShotPageLayout
       // frameloop="demand"
-      dpr={[1, 2]}
+      dpr={1}
       camera={{
         fov: 45,
         near: 0.5,

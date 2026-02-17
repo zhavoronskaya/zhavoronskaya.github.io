@@ -48,7 +48,7 @@ function Transparent() {
       shaderRef.current.uniforms.uTime.value += delta * 0.5;
     }
     if (transmissionShaderRef.current) {
-      transmissionShaderRef.current.uniforms.uTime.value += delta;
+      transmissionShaderRef.current.uniforms.uTransparentTime.value += delta;
     }
   });
 
@@ -62,25 +62,29 @@ function Transparent() {
       renderer: THREE.WebGLRenderer
     ) => {
       transmissionShaderRef.current = webglProgram;
+      webglProgram.uniforms.uTransparentTime = { value: 1.0 };
 
-      webglProgram.uniforms.uTime = { value: 1.0 };
+      if (webglProgram.vertexShader.includes("turbulenceFBM16")) {
+        if (typeof onCompile === "function") onCompile(webglProgram, renderer);
+        return;
+      }
 
       webglProgram.vertexShader = webglProgram.vertexShader.replace(
         "#include <common>",
         `
             #include <common>
 
-            uniform float uTime;
+            uniform float uTransparentTime;
 
-            float inverseLerp(float v, float minValue, float maxValue) {
+            float inverseLerp16(float v, float minValue, float maxValue) {
               return (v - minValue) / (maxValue - minValue);
             }
 
-            float remap(float v, float inMin, float inMax, float outMin, float outMax) {
-              float t = inverseLerp(v, inMin, inMax);
+            float remap16(float v, float inMin, float inMax, float outMin, float outMax) {
+              float t = inverseLerp16(v, inMin, inMax);
               return mix(outMin, outMax, t);
             }
-            vec3 hash( vec3 p ) // replace this by something better
+            vec3 hash16( vec3 p )
             {
               p = vec3( dot(p,vec3(127.1,311.7, 74.7)),
                         dot(p,vec3(269.5,183.3,246.1)),
@@ -89,31 +93,31 @@ function Transparent() {
               return -1.0 + 2.0*fract(sin(p)*43758.5453123);
             }
 
-            float noise( in vec3 p )
+            float noise16( in vec3 p )
             {
               vec3 i = floor( p );
               vec3 f = fract( p );
 
               vec3 u = f*f*(3.0-2.0*f);
 
-              return mix( mix( mix( dot( hash( i + vec3(0.0,0.0,0.0) ), f - vec3(0.0,0.0,0.0) ),
-                                    dot( hash( i + vec3(1.0,0.0,0.0) ), f - vec3(1.0,0.0,0.0) ), u.x),
-                               mix( dot( hash( i + vec3(0.0,1.0,0.0) ), f - vec3(0.0,1.0,0.0) ),
-                                    dot( hash( i + vec3(1.0,1.0,0.0) ), f - vec3(1.0,1.0,0.0) ), u.x), u.y),
-                          mix( mix( dot( hash( i + vec3(0.0,0.0,1.0) ), f - vec3(0.0,0.0,1.0) ),
-                                    dot( hash( i + vec3(1.0,0.0,1.0) ), f - vec3(1.0,0.0,1.0) ), u.x),
-                               mix( dot( hash( i + vec3(0.0,1.0,1.0) ), f - vec3(0.0,1.0,1.0) ),
-                                    dot( hash( i + vec3(1.0,1.0,1.0) ), f - vec3(1.0,1.0,1.0) ), u.x), u.y), u.z );
+              return mix( mix( mix( dot( hash16( i + vec3(0.0,0.0,0.0) ), f - vec3(0.0,0.0,0.0) ),
+                                    dot( hash16( i + vec3(1.0,0.0,0.0) ), f - vec3(1.0,0.0,0.0) ), u.x),
+                               mix( dot( hash16( i + vec3(0.0,1.0,0.0) ), f - vec3(0.0,1.0,0.0) ),
+                                    dot( hash16( i + vec3(1.0,1.0,0.0) ), f - vec3(1.0,1.0,0.0) ), u.x), u.y),
+                          mix( mix( dot( hash16( i + vec3(0.0,0.0,1.0) ), f - vec3(0.0,0.0,1.0) ),
+                                    dot( hash16( i + vec3(1.0,0.0,1.0) ), f - vec3(1.0,0.0,1.0) ), u.x),
+                               mix( dot( hash16( i + vec3(0.0,1.0,1.0) ), f - vec3(0.0,1.0,1.0) ),
+                                    dot( hash16( i + vec3(1.0,1.0,1.0) ), f - vec3(1.0,1.0,1.0) ), u.x), u.y), u.z );
             }
 
-            float fbm(vec3 p, int octaves, float persistence, float lacunarity) {
+            float fbm16(vec3 p, int octaves, float persistence, float lacunarity) {
               float amplitude = 0.5;
               float frequency = 1.0;
               float total = 0.0;
               float normalization = 0.0;
 
               for (int i = 0; i < octaves; ++i) {
-                float noiseValue = noise(p * frequency);
+                float noiseValue = noise16(p * frequency);
                 total += noiseValue * amplitude;
                 normalization += amplitude;
                 amplitude *= persistence;
@@ -125,14 +129,14 @@ function Transparent() {
               return total;
             }
 
-            float turbulenceFBM(vec3 p, int octaves, float persistence, float lacunarity) {
+            float turbulenceFBM16(vec3 p, int octaves, float persistence, float lacunarity) {
               float amplitude = 0.5;
               float frequency = 1.0;
               float total = 0.0;
               float normalization = 0.0;
 
               for (int i = 0; i < octaves; ++i) {
-                float noiseValue = noise(p * frequency);
+                float noiseValue = noise16(p * frequency);
                 noiseValue = abs(noiseValue);
 
                 total += noiseValue * amplitude;
@@ -146,7 +150,7 @@ function Transparent() {
               return total;
             }
 
-            mat2 get2dRotateMatrix(float _angle)
+            mat2 get2dRotateMatrix16(float _angle)
             {
                 return mat2(cos(_angle), - sin(_angle), sin(_angle), cos(_angle));
             }
@@ -158,8 +162,8 @@ function Transparent() {
         `
         #include <beginnormal_vertex>
 
-        float vDisplacement =10.0*turbulenceFBM(objectNormal, 8, 0.5,2.0)*10.0*sin(objectNormal.x *objectNormal.y*objectNormal.z *8.0 + uTime*4.0)*cos(objectNormal.x *objectNormal.y*objectNormal.z *20.0 + uTime*1.0) ;
-        vDisplacement = remap(vDisplacement, -20.0, 20.0, 0.0, 2.0);
+        float vTransparentDisplacement = 10.0 * turbulenceFBM16(objectNormal, 8, 0.5, 2.0) * 10.0 * sin(objectNormal.x * objectNormal.y * objectNormal.z * 8.0 + uTransparentTime * 4.0) * cos(objectNormal.x * objectNormal.y * objectNormal.z * 20.0 + uTransparentTime * 1.0);
+        vTransparentDisplacement = remap16(vTransparentDisplacement, -20.0, 20.0, 0.0, 2.0);
 
         `
       );
@@ -168,7 +172,7 @@ function Transparent() {
         `
         #include <begin_vertex>
 
-        transformed.xyz =  transformed.xyz + vDisplacement * objectNormal.xyz ;
+        transformed.xyz = transformed.xyz + vTransparentDisplacement * objectNormal.xyz;
         // float angle = (position.y + uTime*0.5) * 0.5;
         // mat2 rotateMatrix = get2dRotateMatrix(angle);
 
@@ -183,7 +187,7 @@ function Transparent() {
   return (
     <group>
       <mesh>
-        <sphereGeometry args={[10.0, 512, 512]} />
+        <sphereGeometry args={[10.0, 128, 64]} />
         <MeshTransmissionMaterial
           ref={transmissionRef}
           distortion={1.8}

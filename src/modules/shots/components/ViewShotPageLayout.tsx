@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { Canvas as FiberCanvas, CanvasProps } from "@react-three/fiber";
 
 import { cn } from "@/helpers/ClassName";
@@ -10,7 +9,7 @@ import {
   RefreshIcon,
   ShrinkIcon,
 } from "@/components/UI/icons";
-import { PADDING_Y } from "@/components/BaseLayout/BaseLayout";
+import { PADDING_Y, PADDING_BOTTOM } from "@/components/BaseLayout/BaseLayout";
 import styles from "./ViewShotPageLayout.module.css";
 import TransitionLink from "@/components/TransitionLink";
 
@@ -37,28 +36,25 @@ export default function ViewShotPageLayout({
   hrefBackArrow,
   ...props
 }: Props) {
-  const canvasWrapperRef = React.useRef<HTMLDivElement>(null);
-  const [key, setKey] = React.useState(1);
-  const [canvasRect, setCanvasRect] = React.useState<CanvasRect>();
-  const [canvasScale, setCanvasScale] = React.useState({ x: 1, y: 1 });
-  const [isFullscreen, setIsFullscreen] = React.useState(false);
+  const canvasWrapperRef = useRef<HTMLDivElement>(null);
+  const [key, setKey] = useState(1);
+  const [canvasRect, setCanvasRect] = useState<CanvasRect>();
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const updateScreenMode = (v: boolean) => {
+  const setFullscreen = (v: boolean) => {
     setIsFullscreen(v);
-    updateCanvasScale(v);
   };
 
-  const updateCanvasScale = (full: boolean) => {
-    if (!canvasRect) return;
-
-    if (full) {
-      const x = (canvasRect.width + 48) / canvasRect.width;
-      const y = (canvasRect.height + 128) / canvasRect.height;
-      setCanvasScale({ x, y });
-      return;
+  // After fullscreen (transform) or opacity transition ends — dispatch resize so R3F/gl updates the scene
+  const handleWrapperTransitionEnd = (e: React.TransitionEvent) => {
+    const prop = (e.propertyName ?? "").toLowerCase();
+    if (
+      prop === "transform" ||
+      prop.endsWith("transform") ||
+      prop === "opacity"
+    ) {
+      window.dispatchEvent(new Event("resize"));
     }
-
-    setCanvasScale({ x: 1, y: 1 });
   };
 
   const updateCanvasRect = () => {
@@ -69,44 +65,64 @@ export default function ViewShotPageLayout({
     setCanvasRect({
       left: mainRect.x,
       top: mainRect.y + PADDING_Y,
-      height: mainRect.height - PADDING_Y * 2,
+      height: mainRect.height - PADDING_Y - PADDING_BOTTOM,
       width: mainRect.width,
     });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     updateCanvasRect();
-
-    const canvasWrapper = canvasWrapperRef.current;
     const handleResize = () => updateCanvasRect();
-    const handleScaleEnd = () => window.dispatchEvent(new Event("resize"));
-
     window.addEventListener("resize", handleResize);
-    canvasWrapper?.addEventListener("transitionend", handleScaleEnd);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      canvasWrapper?.removeEventListener("transitionend", handleScaleEnd);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const opacity = canvasRect ? 100 : 0;
-  const transform = `scale(${canvasScale.x}, ${canvasScale.y})`;
   const zIndex = isFullscreen ? 100 : 50;
+  const windowWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+
+  const scaleX =
+    isFullscreen && canvasRect && windowWidth
+      ? windowWidth / canvasRect.width
+      : 1;
+  const scaleY =
+    isFullscreen && canvasRect
+      ? (canvasRect.top + canvasRect.height) / canvasRect.height
+      : 1;
+  const translateX =
+    isFullscreen && canvasRect && windowWidth
+      ? -canvasRect.left - canvasRect.width / 2 + windowWidth / 2
+      : 0;
+  const transform =
+    isFullscreen && canvasRect
+      ? `translate(${translateX}px, 0) scale(${scaleX}, ${scaleY})`
+      : "none";
+
+  const wrapperStyle = canvasRect
+    ? {
+        ...canvasRect,
+        opacity,
+        transform,
+        transformOrigin: isFullscreen ? "bottom center" : undefined,
+        zIndex,
+      }
+    : { opacity, zIndex };
+
+  const containerStyle = {
+    width: canvasRect?.width,
+    height: canvasRect?.height,
+  };
+
   const canvasWrapperClassname = cn(styles.canvas, className, {
     [styles.canvasFullscreen]: isFullscreen,
   });
 
   return (
-    <div
-      id="view-shot-page"
-      className="relative"
-      style={{ width: canvasRect?.width, height: canvasRect?.height }}
-    >
+    <div id="view-shot-page" className="relative" style={containerStyle}>
       {withActions && canvasRect && (
         <CanvasActions
           isFullscreen={isFullscreen}
-          setIsFullscreen={updateScreenMode}
+          setIsFullscreen={setFullscreen}
           setRefreshKey={setKey}
           iconsColor={actionsColor}
         />
@@ -122,7 +138,8 @@ export default function ViewShotPageLayout({
         key={key}
         ref={canvasWrapperRef}
         className={canvasWrapperClassname}
-        style={{ ...canvasRect, opacity, transform, zIndex }}
+        style={wrapperStyle}
+        onTransitionEnd={handleWrapperTransitionEnd}
       >
         <FiberCanvas {...props} className="" />
       </div>

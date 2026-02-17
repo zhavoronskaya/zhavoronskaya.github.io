@@ -115,10 +115,9 @@ float sdfCircle(vec2 p, float r) {
 
 float circle(vec2 uv, vec2 disc_center, float disc_radius, float border_size) {
 		uv -= disc_center;
-    uv-=0.5;
-		uv*=uResolution;
+		uv *= uResolution;
 		float dist = sqrt(dot(uv, uv));
-		return smoothstep(disc_radius+border_size, disc_radius-border_size, dist);
+		return 1.0 - smoothstep(disc_radius - border_size, disc_radius + border_size, dist);
 	}
 
 

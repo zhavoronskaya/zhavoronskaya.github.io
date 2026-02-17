@@ -5,6 +5,8 @@ export default /*glsl */ `
 uniform float uSize;
 uniform float uTime;
 
+attribute float aScale;
+
 varying vec3 vColor;
 
 varying vec3 vPosition;
@@ -207,7 +209,7 @@ float noise = ((domainWarpingFBM(vec3(modelPosition.xz, uTime*0.01))))*54.8;
 
   float sizeTwinkling = sin(uTime*0.1*PI*random(modelPosition.xz)) * 0.5 + 0.5;
   //Size
-  gl_PointSize = uSize*4.0*sizeTwinkling;
+  gl_PointSize = uSize*4.0*sizeTwinkling*aScale;
   gl_PointSize *= (1.0 / - viewPosition.z);
 
 }`;

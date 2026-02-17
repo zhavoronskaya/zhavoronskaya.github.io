@@ -1,24 +1,28 @@
-import { useRef } from "react";
+"use client";
+
+import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import particlesVertexShader from "./shaders/particles/vertex";
 import particlesFragmentShader from "./shaders/particles/fragment";
 
-import { Point, Points } from "@react-three/drei";
-
 const count = 10000;
 const size = 800;
-const points = Array.from({ length: count }).map((_, i) => {
-  const position = [
-    (Math.random() - 0.5) * 5.0,
-    (Math.random() - 0.5) * 5.0,
-    (Math.random() - 0.5) * 5.0,
-  ] as const;
 
-  const scale = Math.random() * size;
-
-  return <Point key={i} position={position} size={scale} />;
-});
+const pointsGeometry = (() => {
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(count * 3);
+  const scales = new Float32Array(count);
+  for (let i = 0; i < count; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 5.0;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 5.0;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 5.0;
+    scales[i] = Math.random();
+  }
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
+  return geometry;
+})();
 
 function Particles() {
   const shaderRef = useRef<THREE.ShaderMaterial | null>(null);
@@ -27,13 +31,13 @@ function Particles() {
     uSize: new THREE.Uniform(size),
   });
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (shaderRef.current)
       shaderRef.current.uniforms.uTime.value += delta * 0.1;
   });
 
   return (
-    <Points limit={10000}>
+    <points geometry={pointsGeometry}>
       <shaderMaterial
         ref={shaderRef}
         vertexShader={particlesVertexShader}
@@ -44,9 +48,7 @@ function Particles() {
         vertexColors
         transparent={true}
       />
-
-      {points}
-    </Points>
+    </points>
   );
 }
 

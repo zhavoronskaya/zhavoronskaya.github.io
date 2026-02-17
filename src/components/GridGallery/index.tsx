@@ -224,7 +224,7 @@ const GridGallery = ({}: Props) => {
           </Video>
         </Cell>
         <Cell
-          href="/shots/12"
+          href="/shots/12/view"
           className="col-start-1 col-span-3 sm:col-start-8 sm:col-span-5 row-start-4 row-span-3 sm:row-start-2 sm:row-span-4 lg:row-start-2 lg:row-span-6"
         >
           <Video className="">

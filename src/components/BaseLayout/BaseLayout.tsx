@@ -8,6 +8,7 @@ type Props = {
 };
 
 export const PADDING_Y = 64;
+export const PADDING_BOTTOM = 0;
 
 const BaseLayout = ({ children, decoration }: Props) => {
   const mainDecorative = decoration ? styles.mainDecorative : "";
@@ -19,7 +20,7 @@ const BaseLayout = ({ children, decoration }: Props) => {
         <main
           id="base-layout-main"
           className={`${styles.main} ${mainDecorative} relative flex-1 min-h-0 overflow-hidden bg-main-container-color sm:mx-6 mx-4 rounded-lg`}
-          style={{ paddingTop: PADDING_Y, paddingBottom: 32 }}
+          style={{ paddingTop: PADDING_Y, paddingBottom: 0 }}
         >
           {children}
         </main>

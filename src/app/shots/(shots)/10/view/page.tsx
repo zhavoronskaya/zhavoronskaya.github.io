@@ -1,13 +1,15 @@
 "use client";
 import ViewShotPageLayout from "@/modules/shots/components/ViewShotPageLayout";
 import Experience from "./Particles3/Experience";
-import { Loader } from "@react-three/drei";
+import { Loader, useGLTF } from "@react-three/drei";
+
+useGLTF.preload("/shots/particles/model/mushroomsUv.glb");
 
 export default function Shot() {
   return (
     <>
       <ViewShotPageLayout
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         camera={{
           fov: 45,
           near: 0.1,

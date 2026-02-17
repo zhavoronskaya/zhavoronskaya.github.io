@@ -1,11 +1,10 @@
-import { useRef, useEffect, useMemo } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+"use client";
+
+import { useRef, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import particlesVertexShader from "./shaders/particles/vertex";
 import particlesFragmentShader from "./shaders/particles/fragment";
-
-import { Point, Points, useGLTF } from "@react-three/drei";
-import { isMesh } from "@/helpers/Object3d";
 
 const count = 7000;
 const size = 800;
@@ -15,33 +14,38 @@ const uniforms = {
   uSize: new THREE.Uniform(size),
 };
 
-const points = Array.from({ length: count }).map((_, i) => {
-  const i3 = i * 3;
-
-  const spherical = new THREE.Spherical(
-    radius * (0.25 + Math.random() * 0.75),
-    Math.random() * Math.PI,
-    Math.random() * Math.PI * 2
-  );
-
+const pointsGeometry = (() => {
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(count * 3);
+  const scales = new Float32Array(count);
+  const spherical = new THREE.Spherical();
   const position = new THREE.Vector3();
-  position.setFromSpherical(spherical);
-  const scale = Math.random() * size;
-
-  return <Point key={i} position={position} size={scale} />;
-});
+  for (let i = 0; i < count; i++) {
+    spherical.radius = radius * (0.25 + Math.random() * 0.75);
+    spherical.phi = Math.random() * Math.PI;
+    spherical.theta = Math.random() * Math.PI * 2;
+    position.setFromSpherical(spherical);
+    positions[i * 3] = position.x;
+    positions[i * 3 + 1] = position.y;
+    positions[i * 3 + 2] = position.z;
+    scales[i] = Math.random();
+  }
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
+  return geometry;
+})();
 
 function Particles() {
   const shaderRef = useRef<THREE.ShaderMaterial | null>(null);
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (shaderRef.current) {
       shaderRef.current.uniforms.uTime.value += delta * 0.1;
     }
   });
 
   return (
-    <Points limit={100000}>
+    <points geometry={pointsGeometry}>
       <shaderMaterial
         ref={shaderRef}
         vertexShader={particlesVertexShader}
@@ -52,8 +56,7 @@ function Particles() {
         vertexColors
         transparent={true}
       />
-      {points}
-    </Points>
+    </points>
   );
 }
 

@@ -11,7 +11,6 @@ import simulationFragmentShaderBush from "./shaders/fbo/simulationFragmentBush";
 import { isShaderMaterial } from "@/helpers/Material";
 
 function makeTexture(g: THREE.BufferGeometry) {
-  console.log("g", g);
   let vertAmount = g.attributes.position.count;
   let texWidth = Math.ceil(Math.sqrt(vertAmount));
   let texHeight = Math.ceil(vertAmount / texWidth);

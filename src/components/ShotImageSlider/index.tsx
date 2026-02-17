@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { IImageData, IImageSlider } from "../../interfaces";
 import CirclePagination from "../UI/CirclePagination/CirclePagination";
 import { useCallback, useMemo, useRef, useState } from "react";

@@ -10,6 +10,7 @@ import TransitionLink from "@/components/TransitionLink";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
 
+import { CloudButtonLink } from "@/components/CloudButtonLink";
 import { DecorHome, FlowerHome, HeartHome } from "@/components/UI/decor";
 import { TechnologyLinks } from "@/constants";
 import { scrollStore } from "@/store/scrollStore";
@@ -172,12 +173,13 @@ export default function Home() {
               digital art and design projects. My passion for the generative art
               drives each work.
             </p>
-            <TransitionLink
+            <CloudButtonLink
               href="/projects"
-              className="block mt-6 sm:mt-8 text-accent-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm hover:text-accent-color-active font-medium"
+              internal
+              className="block mt-6 sm:mt-8 w-full aspect-[1361/785]"
             >
               All Projects
-            </TransitionLink>
+            </CloudButtonLink>
           </FadeInBlock>
         </div>
 

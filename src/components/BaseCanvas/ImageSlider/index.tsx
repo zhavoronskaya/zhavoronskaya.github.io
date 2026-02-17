@@ -1,13 +1,10 @@
-import { invalidate, Size, useFrame, useThree } from "@react-three/fiber";
-import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { memo, useCallback, useEffect, useRef } from "react";
 import {
   Group,
-  IUniform,
   Mesh,
-  Object3D,
   ShaderMaterial,
   Texture,
-  TextureLoader,
   Uniform,
   Vector2,
   Vector3,
@@ -48,15 +45,20 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
     if (!mesh) return;
     if (!(mesh.material instanceof ShaderMaterial)) return;
 
-    const uniforms = mesh.material.uniforms;
+    const mat = mesh.material;
+    mat.depthWrite = false;
+    mesh.renderOrder = 1;
+
+    const uniforms = mat.uniforms;
     const data = { z: mesh.position.z, progress: 0 };
     const to = { z: 500, progress: 1 };
-    uniforms.uMouse.value = new Vector2(
-      pointerRef.current.x,
-      pointerRef.current.y
-    );
+    const ndcX = pointerRef.current.x;
+    const ndcY = pointerRef.current.y;
+    const uvX = (ndcX + 1) * 0.5;
+    const uvY = (ndcY + 1) * 0.5;
+    uniforms.uMouse.value.set(uvX, uvY);
 
-    new TWEEN.Tween(data)
+    new TWEEN.Tween(data, true)
       .to(to, 2000)
       .easing(TWEEN.Easing.Cubic.InOut)
       .onUpdate(() => {
@@ -89,16 +91,15 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
 
       meshFadeOut(active.current);
       active.current = mesh;
-      active.current.position.z = -200;
+      active.current.position.z = 200;
+      active.current.renderOrder = 0;
       queueGroup.current.add(active.current);
 
       const data = { position: mesh.position };
       const to = { position: new Vector3(0, 0, 0) };
-      new TWEEN.Tween(data)
+      new TWEEN.Tween(data, true)
         .to(to, 1500)
         .easing(TWEEN.Easing.Exponential.InOut)
-        .onUpdate(() => {})
-        .onComplete(() => {})
         .start();
     },
     [meshFadeOut]
@@ -109,14 +110,13 @@ const CanvasImageSlider = ({ textures, activeImageIdx, sizes }: Props) => {
   }, [addMesh, activeImageIdx]);
 
   useFrame(() => {
-    TWEEN.update();
+    TWEEN.update(typeof performance !== "undefined" ? performance.now() : 0);
   });
 
   return (
     <>
       <group ref={queueGroup} />
       <group ref={group}>
-        {/* <OrbitControls /> */}
         <Meshes textures={textures} sizes={sizes} />
       </group>
     </>
@@ -142,6 +142,7 @@ const Meshes = memo(
               fragmentShader={fragment}
               uniforms={initUniforms(texture)}
               transparent
+              depthWrite={false}
             />
           </mesh>
         ))}

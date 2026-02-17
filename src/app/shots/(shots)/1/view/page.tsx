@@ -5,7 +5,7 @@ import Experience from "./RayMarching1/Experience";
 export default function Shot() {
   return (
     <ViewShotPageLayout
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       orthographic
       withActions={true}
       hrefBackArrow="/shots/1"

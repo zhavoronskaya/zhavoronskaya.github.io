@@ -1,11 +1,11 @@
-import { useRef, useEffect, useMemo } from "react";
-import { useThree, useFrame } from "@react-three/fiber";
+"use client";
+
+import { useRef, useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import particlesVertexShader from "./shaders/particles/vertex";
 import particlesFragmentShader from "./shaders/particles/fragment";
-
-import { Point, Points, useGLTF } from "@react-three/drei";
-import { isMesh } from "@/helpers/Object3d";
+import { useGLTF } from "@react-three/drei";
 
 const size = 80;
 const uniforms = {
@@ -15,20 +15,38 @@ const uniforms = {
 
 function Particles() {
   const shaderRef = useRef<THREE.ShaderMaterial | null>(null);
-
   const { nodes } = useGLTF("/shots/particles/model/tree2.glb");
   const tree = nodes.tree1 as THREE.Mesh;
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (shaderRef.current) {
       shaderRef.current.uniforms.uTime.value += delta * 0.5;
     }
   });
 
-  const length = tree.geometry.attributes.position.count ?? 0;
+  const pointsGeometry = useMemo(() => {
+    const posAttr = tree.geometry.attributes.position;
+    const arr = posAttr.array as Float32Array;
+    const count = posAttr.count;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const i2 = i * 2;
+      positions[i * 3] = arr[i2];
+      positions[i * 3 + 1] = arr[i2 + 1];
+      positions[i * 3 + 2] = arr[i2 + 2];
+    }
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    const scales = new Float32Array(count);
+    for (let i = 0; i < count; i++) {
+      scales[i] = Math.random();
+    }
+    geometry.setAttribute("aScale", new THREE.BufferAttribute(scales, 1));
+    return geometry;
+  }, [tree]);
 
   return (
-    <Points limit={100000}>
+    <points geometry={pointsGeometry}>
       <shaderMaterial
         ref={shaderRef}
         vertexShader={particlesVertexShader}
@@ -39,21 +57,7 @@ function Particles() {
         vertexColors
         transparent={true}
       />
-
-      {Array.from({ length }).map((_, i) => {
-        //specially not exactly correct, correct with i*3
-        const i3 = i * 2;
-        const position = [
-          tree.geometry.attributes.position.array[i3],
-          tree.geometry.attributes.position.array[i3 + 1],
-          tree.geometry.attributes.position.array[i3 + 2],
-        ] as const;
-
-        const scale = Math.random() * size;
-
-        return <Point key={i} position={position} size={scale} />;
-      })}
-    </Points>
+    </points>
   );
 }
 

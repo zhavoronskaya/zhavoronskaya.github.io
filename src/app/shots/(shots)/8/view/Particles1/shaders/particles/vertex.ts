@@ -5,6 +5,8 @@ export default /*glsl */ `
 uniform float uSize;
 uniform float uTime;
 
+attribute float aScale;
+
 varying vec3 vColor;
 
 varying vec3 vPosition;
@@ -202,7 +204,7 @@ gl_Position = projectedPosition;
 vPosition =  modelPosition.xyz;
 
 //Size
-gl_PointSize = uSize;
+gl_PointSize = uSize * aScale;
 gl_PointSize *= (1.0 / - viewPosition.z);
 
 }`;

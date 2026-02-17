@@ -4,8 +4,7 @@ import Experience from "./Perlin1/Experience";
 export default function Shot() {
   return (
     <ViewShotPageLayout
-      // frameloop="demand"
-      dpr={[1, 2]}
+      dpr={1}
       camera={{
         fov: 45,
         near: 0.1,

@@ -3,7 +3,7 @@
   z-index: 19;
   background: #fff;
   opacity: 0;
-  transition: opacity 1s, transform 0.4s;
+  transition: opacity 0.4s, transform 0.4s, transform-origin 0.4s;
 }
 
 
@@ -30,7 +30,12 @@
   border-radius: 6px;
 }
 
-.canvasFullscreen canvas {
+.canvasFullscreen {
   border-radius: 0;
+  overflow: hidden;
+}
+
+.canvasFullscreen canvas {
+  border-radius: 0 !important;
   z-index: 100;
 }
