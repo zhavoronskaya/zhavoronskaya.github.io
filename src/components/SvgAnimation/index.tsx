@@ -128,6 +128,26 @@ export function ShotLayoutSvgAnimation() {
   return null;
 }
 
+const projectsHeartTween = {
+  duration: 4,
+  motionPath: {
+    path: [
+      { x: 0, y: 0, scale: 1, opacity: 0 },
+      { x: -60, y: -80, scale: 1.1, opacity: 0.25 },
+      { x: -120, y: -140, scale: 1.2, opacity: 0.5 },
+      { x: 120, y: -220, scale: 1.3, opacity: 0.75 },
+      { x: 0, y: -300, scale: 1.4, opacity: 1 },
+    ],
+    alignOrigin: [0.5, 0.5],
+    curviness: 2,
+  },
+  immediateRender: false,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.out",
+  scrollTrigger: { trigger: ".projects-heart" },
+};
+
 export function PetsSvgAnimation() {
   const tl = gsap.timeline();
   useGSAP(
@@ -140,50 +160,23 @@ export function PetsSvgAnimation() {
         yoyo: true,
         ease: "sine.inOut",
         transformOrigin: "50% 50%",
-        scrollTrigger: {
-          trigger: ".pets-title",
+        scrollTrigger: { trigger: ".pets-title" },
+      }).to(
+        ".pets-dog-fill",
+        {
+          duration: 0.4,
+          scale: 1.35,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          transformOrigin: "50% 50%",
+          scrollTrigger: { trigger: ".pets-title" },
         },
-      })
-        .to(
-          ".pets-dog-fill",
-          {
-            duration: 0.4,
-            scale: 1.35,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            transformOrigin: "50% 50%",
-            scrollTrigger: {
-              trigger: ".pets-title",
-            },
-          },
-          "<"
-        )
-        .to(
-          ".projects-heart",
-          {
-            duration: 4,
-            motionPath: {
-              path: [
-                { x: 0, y: 0, scale: 1, opacity: 0 },
-                { x: -60, y: -80, scale: 1.1, opacity: 0.25 },
-                { x: -120, y: -140, scale: 1.2, opacity: 0.5 },
-                { x: 120, y: -220, scale: 1.3, opacity: 0.75 },
-                { x: 0, y: -300, scale: 1.4, opacity: 1 },
-              ],
-              alignOrigin: [0.5, 0.5],
-              curviness: 2,
-            },
-            immediateRender: false,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.out",
-            scrollTrigger: {
-              trigger: ".projects-heart",
-            },
-          },
-          "<"
-        );
+        "<"
+      );
+      if (document.querySelector(".projects-heart")) {
+        tl.to(".projects-heart", projectsHeartTween, "<");
+      }
       ScrollTrigger.refresh();
     },
     { dependencies: [] }
@@ -282,37 +275,13 @@ export function ProjectsSvgAnimation() {
           curviness: 4,
           alignOrigin: [0.5, 0.5],
         },
-        scrollTrigger: {
-          trigger: ".projects-title",
-        },
-      }).to(
-        ".projects-heart",
-        {
-          duration: 4,
-          motionPath: {
-            path: [
-              { x: 0, y: 0, scale: 1, opacity: 0 },
-              { x: -60, y: -80, scale: 1.1, opacity: 0.25 },
-              { x: -120, y: -140, scale: 1.2, opacity: 0.5 },
-              { x: 120, y: -220, scale: 1.3, opacity: 0.75 },
-              { x: 0, y: -300, scale: 1.4, opacity: 1 },
-            ],
-            alignOrigin: [0.5, 0.5],
-            curviness: 2,
-          },
-          immediateRender: false,
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.out",
-          scrollTrigger: {
-            trigger: ".projects-heart",
-          },
-        },
-        "<"
-      );
+        scrollTrigger: { trigger: ".projects-title" },
+      });
+      if (document.querySelector(".projects-heart")) {
+        tl.to(".projects-heart", projectsHeartTween, "<");
+      }
       ScrollTrigger.refresh();
     },
-
     { dependencies: [] }
   );
 
