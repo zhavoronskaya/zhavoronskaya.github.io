@@ -96,7 +96,7 @@ export default function ViewShotPageLayout({
   const transform =
     isFullscreen && canvasRect
       ? `translate(${translateX}px, 0) scale(${scaleX}, ${scaleY})`
-      : "none";
+      : "translate(0, 0) scale(1, 1)";
 
   const wrapperStyle = canvasRect
     ? {
