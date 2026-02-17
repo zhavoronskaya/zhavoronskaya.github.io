@@ -6,6 +6,8 @@ type Props = {
   className?: string;
 };
 
+const posterUrl = (slug: string) => `/video/${slug}-poster.webp`;
+
 export const getClientVideoSources = (slug: string) => {
   const is1440 = slug === "chipsa" || slug === "visa";
   const is1080Default = slug === "mono";
@@ -24,7 +26,7 @@ export default function ClientProjectVideo({ slug, alt, className }: Props) {
       loop
       autoPlay
       preload="metadata"
-      poster={`/video/${slug}-poster.webp`}
+      poster={posterUrl(slug)}
       className={className}
     >
       <source src={high} type="video/mp4" media="(min-width: 1280px)" />

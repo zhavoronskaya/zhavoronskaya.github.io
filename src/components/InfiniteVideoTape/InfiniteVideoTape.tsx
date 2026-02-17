@@ -14,7 +14,10 @@ function TapeCard({ item }: { item: TapeItem }) {
       <div className="group relative overflow-hidden rounded-xl border border-dissolve-color aspect-[4/3] bg-main-container-color focus-within:outline focus-within:outline-2 focus-within:outline-accent-color focus-within:outline-offset-2">
         <div className="absolute inset-0">
           {item.type === "video" ? (
-            <Video className="block h-full w-full object-cover">
+            <Video
+              className="block h-full w-full object-cover"
+              poster={item.posterUrl}
+            >
               {item.videoUrl1080 && (
                 <source
                   src={item.videoUrl1080}

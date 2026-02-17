@@ -1,6 +1,6 @@
 import { IProject } from "@/interfaces";
 import { cn } from "@/helpers/ClassName";
-import { Video } from "@/components/GridGallery";
+import { Video, videoUrlToPosterUrl } from "@/components/GridGallery";
 import { MicroHeartProject } from "@/components/UI/decor";
 import TransitionLink from "@/components/TransitionLink";
 
@@ -17,9 +17,16 @@ const ProjectThumbnail = ({
   fullWidthClickable,
   containerClassName,
 }: Props) => {
+  const posterUrl =
+    project.thumbnailPosterUrl ??
+    videoUrlToPosterUrl(project.thumbnailVideoUrl);
+
   const videoBlock = (
     <div className="relative overflow-hidden rounded-xl w-full h-full border border-border-dissolve-color">
-      <Video className="block object-cover w-full h-full min-h-full min-w-full">
+      <Video
+        className="block object-cover w-full h-full min-h-full min-w-full"
+        poster={posterUrl}
+      >
         {project.thumbnailVideoUrl1080 && (
           <source
             src={project.thumbnailVideoUrl1080}

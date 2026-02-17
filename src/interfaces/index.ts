@@ -29,6 +29,7 @@ export interface IProject {
   thumbnailDIscription?: string;
   thumbnailVideoUrl: string;
   thumbnailVideoUrl1080?: string;
+  thumbnailPosterUrl?: string;
   label: string;
   artistLink?: string;
   link: string;

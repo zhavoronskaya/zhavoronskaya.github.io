@@ -518,12 +518,23 @@ const Title = ({
   );
 };
 
+/** Derive webp poster path from video URL (e.g. /video/liza-compressed-720.mp4 → /video/liza-poster.webp) */
+export function videoUrlToPosterUrl(videoUrl: string): string {
+  const base = videoUrl.replace(
+    /-compressed-\d+\.mp4$|-720\.mp4$|-1080\.mp4$|-1440\.mp4$/i,
+    ""
+  );
+  return `${base}-poster.webp`;
+}
+
 export const Video = ({
   className,
   children,
+  poster,
 }: {
   children: React.ReactNode;
   className?: string;
+  poster?: string;
 }) => {
   return (
     <video
@@ -531,6 +542,7 @@ export const Video = ({
       muted
       playsInline
       loop
+      poster={poster}
       className={cn("h-full w-full object-cover", className)}
     >
       {children}

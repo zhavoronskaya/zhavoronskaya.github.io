@@ -7,6 +7,7 @@ const audioParticlesBubble: IProject = {
   thumbnailDIscription: "WebGPU audio-driven generative visual experiment",
   thumbnailVideoUrl: "/video/audio-bubble-720.mp4",
   thumbnailVideoUrl1080: "/video/audio-bubble-1080.mp4",
+  thumbnailPosterUrl: "/video/audio-bubble-poster.webp",
   projectImages: [
     "/projects/audio-bubble/bubble2.webp",
     "/projects/audio-bubble/bubble5.webp",

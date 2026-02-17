@@ -5,6 +5,7 @@ import lizaLubi from "@/app/projects/liza-lubi/data";
 import audioParticlesBubble from "@/app/projects/audio-particles-bubble/data";
 import { CLIENT_VIDEO_GRID_ITEMS } from "@/data/clientProjects";
 import { getClientVideoSources } from "@/components/ClientProjectVideo/ClientProjectVideo";
+import { videoUrlToPosterUrl } from "@/components/GridGallery";
 
 export const PROJECTS_WITH_VIDEOS: IProject[] = [
   lizaLubi,
@@ -20,6 +21,7 @@ export type TapeItem =
       label: string;
       videoUrl: string;
       videoUrl1080?: string;
+      posterUrl?: string;
     }
   | { type: "image"; routing: string; label: string; imageUrl: string };
 
@@ -32,11 +34,15 @@ function toTapeItem(project: IProject): TapeItem {
       project.name.join(project.separator ?? ""),
     videoUrl: project.thumbnailVideoUrl,
     videoUrl1080: project.thumbnailVideoUrl1080,
+    posterUrl:
+      project.thumbnailPosterUrl ??
+      videoUrlToPosterUrl(project.thumbnailVideoUrl),
   };
 }
 
 function clientToTapeItems(): TapeItem[] {
   return CLIENT_VIDEO_GRID_ITEMS.map((c): TapeItem => {
+    const posterUrl = `/video/${c.slug}-poster.webp`;
     if (c.thumbnailVideoUrl) {
       return {
         type: "video",
@@ -44,6 +50,7 @@ function clientToTapeItems(): TapeItem[] {
         label: c.name,
         videoUrl: c.thumbnailVideoUrl,
         videoUrl1080: c.thumbnailVideoUrl1080,
+        posterUrl,
       };
     }
     const { default: videoUrl, high: videoUrl1080 } = getClientVideoSources(
@@ -55,6 +62,7 @@ function clientToTapeItems(): TapeItem[] {
       label: c.name,
       videoUrl,
       videoUrl1080,
+      posterUrl,
     };
   });
 }

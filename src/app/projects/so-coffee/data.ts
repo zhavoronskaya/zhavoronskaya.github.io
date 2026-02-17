@@ -7,6 +7,7 @@ const soCoffee: IProject = {
   thumbnailDIscription: "Interactive website for a specialty coffee brand",
   thumbnailVideoUrl: "/video/so-compressed-720.mp4",
   thumbnailVideoUrl1080: "/video/so-compressed-1080.mp4",
+  thumbnailPosterUrl: "/video/so-poster.webp",
   projectImages: [
     "/projects/so-coffee/so13.webp",
     "/projects/so-coffee/so16.webp",

@@ -10,6 +10,8 @@ import {
 import { EyesIcon } from "@/components/UI/icons";
 import TransitionLink from "@/components/TransitionLink";
 
+const posterUrl = (slug: string) => `/video/${slug}-poster.webp`;
+
 function VideoCell({
   slug,
   name,
@@ -69,7 +71,7 @@ function VideoCell({
           loop
           autoPlay
           preload="metadata"
-          poster={`/video/${slug}-poster.webp`}
+          poster={posterUrl(slug)}
           className="h-full w-full object-cover transition-transform duration-300 scale-100 group-hover:scale-[1.02] [transform:translateZ(0)] rounded-lg md:rounded-none"
         >
           <source

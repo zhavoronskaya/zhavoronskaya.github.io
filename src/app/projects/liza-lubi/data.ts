@@ -8,6 +8,7 @@ const lizaLubi: IProject = {
   thumbnailDIscription: "Interactive WebGPU music experience",
   thumbnailVideoUrl: "/video/liza-compressed-720.mp4",
   thumbnailVideoUrl1080: "/video/liza-compressed-1080.mp4",
+  thumbnailPosterUrl: "/video/liza-poster.webp",
   projectImages: [
     "/projects/liza-lubi/liza2.webp",
     "/projects/liza-lubi/liza10.webp",

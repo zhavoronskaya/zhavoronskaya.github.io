@@ -7,6 +7,7 @@ const virtudes: IProject = {
   thumbnailDIscription: "3D Web Project: A Park in Porto, Portugal",
   thumbnailVideoUrl: "/video/virtudes-compressed-720.mp4",
   thumbnailVideoUrl1080: "/video/virtudes-compressed-1080.mp4",
+  thumbnailPosterUrl: "/video/virtudes-poster.webp",
   routing: "/projects/parque-das-virtudes",
   link: `${TechnologyLinks.VIRTUDES}`,
   projectImages: [
