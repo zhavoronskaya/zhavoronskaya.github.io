@@ -1,3 +1,4 @@
+import { CloudButtonLink } from "@/components/CloudButtonLink";
 import { SkillsSvgAnimation } from "@/components/SvgAnimation";
 import TransitionLink from "@/components/TransitionLink";
 import {
@@ -9,7 +10,6 @@ import {
   WingsSkills,
 } from "@/components/UI/decor";
 import { SocialLinks, TechnologyLinks } from "@/constants";
-import Link from "next/link";
 
 type Props = {};
 
@@ -344,7 +344,7 @@ const SkillsPage = ({}: Props) => {
         <div className="mt-24 sm:mt-12 mb-36 lg:mt-16 sm:grid sm:grid-cols-12 relative">
           <div className="sm:col-start-6 sm:col-span-7 lg:col-start-6 lg:col-span-7">
             <span className="block text-dissolve-color text-remarkm sm:text-remarkt lg:text-remark">
-              courses&tutorials
+              courses / tutorials
             </span>
             <a
               target="_blank"
@@ -378,13 +378,22 @@ const SkillsPage = ({}: Props) => {
             >
               the art of code
             </a>
-            <span className="block text-dissolve-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm font-medium">
-              && more
+            <span className="block text-dissolve-color uppercase text-remarkm sm:text-remarkt lg:text-remark font-medium">
+              & more
             </span>
           </div>
           <div className="skills-flower absolute left-[40%] bottom-[-100%] sm:left-[4%] sm:top-[32%] lg:left-[2%] lg:top-[24%] pointer-events-none z-20">
             <FlowerThreeSkills className="w-[120px] sm:w-[220px] lg:w-[320px] xl:w-[340px]" />
           </div>
+        </div>
+
+        <div className="mt-24 sm:mt-32 mb-20 sm:mb-36 flex justify-end">
+          <CloudButtonLink
+            href="/cv_Lena_Zhavoronskaya.pdf"
+            className="block w-[180px] sm:w-[300px] aspect-[1361/785]"
+          >
+            View CV
+          </CloudButtonLink>
         </div>
       </div>
     </>
