@@ -379,7 +379,7 @@ const SkillsPage = ({}: Props) => {
               the art of code
             </a>
             <span className="block text-dissolve-color uppercase text-pillsmm sm:text-pillsmt lg:text-pillsm font-medium">
-              & many others
+              && more
             </span>
           </div>
           <div className="skills-flower absolute left-[40%] bottom-[-100%] sm:left-[4%] sm:top-[32%] lg:left-[2%] lg:top-[24%] pointer-events-none z-20">
